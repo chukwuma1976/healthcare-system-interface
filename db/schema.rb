@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_104820) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_132823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,80 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_104820) do
 
   create_table "charts", force: :cascade do |t|
     t.string "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "consults", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "provider_id"
+    t.string "reason_for_consult"
+    t.string "past_medical_history"
+    t.string "past_surgical_history"
+    t.string "medications"
+    t.string "allergies"
+    t.string "social_history"
+    t.string "family_history"
+    t.string "vital_signs"
+    t.text "history_of_present_illness"
+    t.text "physical_exam"
+    t.text "assessment"
+    t.text "plan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discharge_notes", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "provider_id"
+    t.datetime "date_of_admission"
+    t.datetime "date_of_discharge"
+    t.string "admission_diagnosis"
+    t.string "discharge_diagnosis"
+    t.string "procedures_performed"
+    t.text "hospital_course"
+    t.string "discharge_medications"
+    t.string "discharge_instructions"
+    t.string "follow_up"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "history_and_physicals", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "provider_id"
+    t.string "chief_complaint"
+    t.string "past_medical_history"
+    t.string "past_surgical_history"
+    t.string "medications"
+    t.string "allergies"
+    t.string "social_history"
+    t.string "family_history"
+    t.string "review_of_systems"
+    t.string "vital_signs"
+    t.text "history_of_present_illness"
+    t.text "physical_exam"
+    t.text "assessment"
+    t.text "plan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "operative_reports", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "provider_id"
+    t.datetime "date"
+    t.string "indications"
+    t.string "preoperative_diagnosis"
+    t.string "postoperative_diagnosis"
+    t.string "procedure"
+    t.string "assistants"
+    t.string "anesthesiologist"
+    t.string "anesthesia"
+    t.string "fluids"
+    t.string "estimated_blood_loss"
+    t.text "description"
+    t.string "complications"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +121,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_104820) do
     t.string "phone_number"
     t.string "email_address"
     t.string "insurance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "procedure_notes", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "provider_id"
+    t.string "indications"
+    t.string "anesthesia"
+    t.text "description"
+    t.string "complications"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "progress_notes", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "provider_id"
+    t.text "subjective"
+    t.text "objective"
+    t.text "assessment"
+    t.text "plan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
