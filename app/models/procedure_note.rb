@@ -1,0 +1,2 @@
+class ProcedureNote < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class ProgressNotesController < ApplicationController
+end

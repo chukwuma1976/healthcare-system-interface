@@ -1,0 +1,2 @@
+class DischargeNotesController < ApplicationController
+end

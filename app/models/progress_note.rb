@@ -1,0 +1,2 @@
+class ProgressNote < ApplicationRecord
+end

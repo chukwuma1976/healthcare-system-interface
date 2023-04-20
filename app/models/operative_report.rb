@@ -1,0 +1,2 @@
+class OperativeReport < ApplicationRecord
+end

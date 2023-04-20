@@ -1,0 +1,2 @@
+class OperativeReportsController < ApplicationController
+end

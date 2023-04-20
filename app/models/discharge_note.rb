@@ -1,0 +1,2 @@
+class DischargeNote < ApplicationRecord
+end
