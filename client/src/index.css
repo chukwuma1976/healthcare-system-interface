@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form {
+  background: seashell;
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  text-align: center;
+}
+.form p {color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.navbar {
+  display: inline-block;
+  width: 110px;
+  padding: 10px;
+  margin: 0 6px 6px;
+  background: blue;
+  color: white
+}
+
+.home-navlink {
+  text-align: center;
+  width: 800px;
+  height: 90px;
+  border: 20px solid red;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background: yellow;
+  font-size: 20px;
+}
+
+.redirect {
+  display: inline-block; 
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+  background: ghostwhite;
+  text-align: center;
+  justify-content: space-between;
+  border-radius: 1em;
+}
+
+.title {
+  color: darkslategrey
+}
+
+.home-page {
+  background: whitesmoke;
+  text-align: center;
+  padding: 20px
+}
+.date{
+  text-align: right;
+}

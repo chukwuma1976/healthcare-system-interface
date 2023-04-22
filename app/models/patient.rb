@@ -4,6 +4,6 @@ class Patient < ApplicationRecord
 
     has_many :appointments
     has_many :providers, through: :appointments
-    has_one :chart
+    has_one :chart, dependent: :destroy
 
 end

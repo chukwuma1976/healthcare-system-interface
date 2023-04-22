@@ -16,6 +16,7 @@ class PatientsController < ApplicationController
 
     def create
         patient = current_provider.patients.create!(patient_params)
+        Chart.create(patient_id: patient.id)
         render json: patient, status: :created
     end
 

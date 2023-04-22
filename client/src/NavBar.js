@@ -12,34 +12,6 @@ function NavBar() {
             Home Page
           </NavLink>
           <NavLink
-            to="/artists"
-            style={({isActive}) => ({background: isActive ? 'red' : ''})}
-            className="navbar"
-          >
-            Artists
-          </NavLink>
-          <NavLink
-            to="/albums"
-            style={({isActive}) => ({background: isActive ? 'red' : ''})}
-            className="navbar"
-          >
-            Albums
-          </NavLink>
-          <NavLink
-            to="/members"
-            style={({isActive}) => ({background: isActive ? 'red' : ''})}
-            className="navbar"
-          >
-            Members
-          </NavLink>
-          <NavLink
-            to="/songs"
-            style={({isActive}) => ({background: isActive ? 'red' : ''})}
-            className="navbar"
-          >
-            Songs
-          </NavLink>
-          <NavLink
             to="/signout"
             style={({isActive}) => ({background: isActive ? 'red' : ''})}
             className="navbar"

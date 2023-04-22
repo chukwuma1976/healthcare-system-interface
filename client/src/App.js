@@ -1,5 +1,5 @@
 import React from 'react'
-import EclecticMusic from './EclecticMusic'
+import HealthCareSystemInterface from './HealthCareSystemInterface'
 import { UserProvider } from './User'
 
 function App() {
