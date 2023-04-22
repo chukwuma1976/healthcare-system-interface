@@ -101,7 +101,7 @@ function SignUpForm({ onLogin }) {
         />
         <br />
         <label htmlFor="type_of_provider">Type of Provider</label>
-        <select placeholder="type_of_provider" value={type_of_provider} onChange={handleChange}>
+        <select value={type_of_provider} onChange={handleChange}>
           <option></option>
           <option>Physician</option>
           <option>Physician Assistant</option>

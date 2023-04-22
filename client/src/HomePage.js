@@ -10,9 +10,9 @@ function HomePage() {
         <div className='home-page'>
             <p className='date'>
                 Date: {days[today.getDay()]} {today.getMonth() + 1}/{today.getDate()}/{today.getFullYear()}{" "}
-                Time: {today.getHours()}:{today.getMinutes()}
+                Time: {today.getHours()%12}:{today.getMinutes()} {today.getHours() <= 12? "AM" : "PM"}
             </p>
-            <h1>Hello {user.username} Welcome to the Healthcare System Interface (HCSI) </h1>
+            <h1>Hello {user.first_name} {user.last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
             <button onClick={()=>setDisplayInstructions(!displayInstructions)}>
                {!displayInstructions?  `${user.username} click to see instructions` : 'Hide Instructions'}
             </button>
@@ -29,7 +29,7 @@ function HomePage() {
                 <p>3) Logout: This section signs out the user</p>
             </div>
             }
-            <h2>Please feel free to navigate to other parts of this app and start spinning some records!</h2>
+            <h2>Please feel free to navigate to other parts of this app and start managing your patient records</h2>
             <br/>
             {/* <NavLink to="/artists" style={{color: 'blue'}}>Artists </NavLink>
             <br/>
