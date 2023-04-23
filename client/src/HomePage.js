@@ -4,7 +4,8 @@ import { UserContext } from './User';
 
 function HomePage() {
     const {user, today} = useContext(UserContext)
-    const [displayInstructions, setDisplayInstructions] = useState(false)
+    const {username, first_name, middle_name, last_name, type_of_provider, department} = user
+    const [displayProfile, setDisplayProfile] = useState(false)
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     return (
         <div className='home-page'>
@@ -12,28 +13,26 @@ function HomePage() {
                 Date: {days[today.getDay()]} {today.getMonth() + 1}/{today.getDate()}/{today.getFullYear()}{" "}
                 Time: {today.getHours()%12}:{today.getMinutes()} {today.getHours() <= 12? "AM" : "PM"}
             </p>
-            <h1>Hello {user.first_name} {user.last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
-            <button onClick={()=>setDisplayInstructions(!displayInstructions)}>
-               {!displayInstructions?  `${user.username} click to see instructions` : 'Hide Instructions'}
+            <h1>Hello {first_name} {last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
+            <button onClick={()=>setDisplayProfile(!displayProfile)}>
+               {!displayProfile?  `${first_name} Click To See Profile` : 'Hide Profile'}
             </button>
             <br/>
             <br/>
-            {!displayInstructions ? null :
+            {!displayProfile ? null :
             <div className='instructions'>
-                <h4>There are five main parts to this application.</h4>
-                <br/>
-                <p>1) Login Page: since you made it here you clearly know how to create an account and login</p>
-                <br/>
-                <p>2) Home Page: {user.username}, you are on this page.  This page can redirect to other pages on the application.</p>
-                <br/>
-                <p>3) Logout: This section signs out the user</p>
+                <h4>Your Profile</h4>
+                <p>Full Name: {first_name} {middle_name} {last_name}</p>
+                <p>Username: {username}</p>
+                <p>Type of Provider: {type_of_provider}</p>
+                <p>Department: {department}</p>
             </div>
             }
             <h2>Please feel free to navigate to other parts of this app and start managing your patient records</h2>
             <br/>
-            {/* <NavLink to="/artists" style={{color: 'blue'}}>Artists </NavLink>
+            <NavLink to="/providers" style={{color: 'blue'}}>Providers </NavLink>
             <br/>
-            <NavLink to="/albums" style={{color: 'blue'}}>Albums </NavLink>
+            {/* <NavLink to="/albums" style={{color: 'blue'}}>Albums </NavLink>
             <br/>
             <NavLink to="/members" style={{color: 'blue'}}>Members </NavLink>
             <br/>

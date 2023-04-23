@@ -14,7 +14,7 @@ function SignOut() {
 
     return (
         <div className='form'>
-            <h1>{user.username} do you want to Log Out ?</h1> 
+            <h1>{user.first_name} do you want to Log Out ?</h1> 
             <button onClick={()=>setWantToLogOut(!wantToLogOut)}>Click Here</button>
             {wantToLogOut? 
              (<div>
