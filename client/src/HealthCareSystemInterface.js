@@ -10,6 +10,7 @@ import Appointments from "./Appointments";
 import SignOut from "./SignOut";
 import {UserContext} from "./User";
 import AddRecords from "./AddRecords";
+import AddSoapNote from "./AddSoapNote";
 
 function HealthCareSystemInterface() {
   const {user, setUser} = useContext(UserContext);
@@ -23,7 +24,8 @@ function HealthCareSystemInterface() {
         <Route path="/providers" element={<Providers />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/add_records/:patient_id" element={<AddRecords />} />
+        <Route path="/add_records/:patientId" element={<AddRecords />} />
+        <Route path="/add_soap_note/:patientId" element={<AddSoapNote />} />
       </Routes>
     </div>
   );

@@ -1,2 +1,3 @@
 class ProcedureNotesController < ApplicationController
+
 end
