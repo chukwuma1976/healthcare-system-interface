@@ -30,9 +30,9 @@ function HomePage() {
             <br/>
             <NavLink to="/providers" style={{color: 'blue'}}>Providers </NavLink>
             <br/>
-            {/* <NavLink to="/albums" style={{color: 'blue'}}>Albums </NavLink>
+            <NavLink to="/appointments" style={{color: 'blue'}}>Appointments </NavLink>
             <br/>
-            <NavLink to="/members" style={{color: 'blue'}}>Members </NavLink>
+            {/* <NavLink to="/members" style={{color: 'blue'}}>Members </NavLink>
             <br/>
             <NavLink to="/songs" style={{color: 'blue'}}>Songs </NavLink>
             <br/> */}
