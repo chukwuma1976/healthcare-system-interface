@@ -43,20 +43,24 @@ function UserProvider({children}) {
             "November",
             "December",
           ];
-        return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        return `${days[today.getDay()]} ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+    }
+    function displayDateAsNumbers(thisDate){
+        const date = new Date(thisDate)
+        return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}}`
     }
     function displayTime (thisDate){
         const date = new Date(thisDate)
-        return `${date.getHours()%12}:${date.getMinutes()} ${date.getHours()>12 ? "PM":"AM"}`
+        return `${date.getHours()%12}:${date.getMinutes() < 10? `0${date.getMinutes()}` : date.getMinutes()} ${date.getHours()>12 ? "PM":"AM"}`
     }
 
     return (
         <UserContext.Provider value={{
-            user, setUser, 
-            today, 
+            user, setUser,  
             patients, setPatients,
             appointments, setAppointments,
-            displayDate, displayTime
+            today, displayDate, displayTime, displayDateAsNumbers
         }}>
             {children}
         </UserContext.Provider>

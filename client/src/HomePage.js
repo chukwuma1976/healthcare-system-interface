@@ -3,15 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { UserContext } from './User';
 
 function HomePage() {
-    const {user, today} = useContext(UserContext)
+    const {user, today, displayDate, displayTime} = useContext(UserContext)
     const {username, first_name, middle_name, last_name, type_of_provider, department} = user
     const [displayProfile, setDisplayProfile] = useState(false)
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     return (
         <div className='home-page'>
             <p className='date'>
-                Date: {days[today.getDay()]} {today.getMonth() + 1}/{today.getDate()}/{today.getFullYear()}{" "}
-                Time: {today.getHours()%12}:{today.getMinutes()} {today.getHours() <= 12? "AM" : "PM"}
+                Date: {displayDate(today)} Time: {displayTime(today)}
             </p>
             <h1>Hello {first_name} {last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
             <button onClick={()=>setDisplayProfile(!displayProfile)}>
