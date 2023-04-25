@@ -1,12 +1,12 @@
 Rails.application.routes.draw do  
-  resources :consults
-  resources :discharge_notes
-  resources :procedure_notes
-  resources :operative_reports
-  resources :progress_notes
   resources :patients do
     resources :charts, only: :index
     resources :history_and_physicals
+    resources :consults
+    resources :discharge_notes
+    resources :procedure_notes
+    resources :operative_reports
+    resources :progress_notes
   end
   resources :appointments
   resources :providers, only: [:index, :show] do
