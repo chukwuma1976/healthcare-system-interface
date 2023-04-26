@@ -13,6 +13,7 @@ import AddRecords from "./AddRecords";
 import AddSoapNote from "./AddSoapNote";
 import UpdatePatient from "./UpdatePatient";
 import AddHistory from "./AddHistory";
+import AddConsult from "./AddConsult";
 
 function HealthCareSystemInterface() {
   const {user, setUser} = useContext(UserContext);
@@ -30,6 +31,7 @@ function HealthCareSystemInterface() {
         <Route path="/add_soap_note/:patientId" element={<AddSoapNote />} />
         <Route path="/update_patient/:patientId" element={<UpdatePatient />} />
         <Route path="/add_history/:patientId" element={<AddHistory />} />
+        <Route path="/add_consult/:patientId" element={<AddConsult />} />
       </Routes>
     </div>
   );
