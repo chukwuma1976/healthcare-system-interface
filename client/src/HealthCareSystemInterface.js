@@ -1,19 +1,21 @@
 import React from "react";
 import { useContext } from "react";
-import Login from "./Login";
 import { Route, Routes } from "react-router-dom";
+import {UserContext} from "./User";
+
+import Login from "./Login";
 import HomePage from "./HomePage";
 import NavBar from "./NavBar";
+import SignOut from "./SignOut";
+
 import Providers from "./Providers";
 import Appointments from "./Appointments";
-
-import SignOut from "./SignOut";
-import {UserContext} from "./User";
 import AddRecords from "./AddRecords";
 import AddSoapNote from "./AddSoapNote";
 import UpdatePatient from "./UpdatePatient";
 import AddHistory from "./AddHistory";
 import AddConsult from "./AddConsult";
+import AddDischargeNote from "./AddDischargeNote";
 
 function HealthCareSystemInterface() {
   const {user, setUser} = useContext(UserContext);
@@ -32,6 +34,7 @@ function HealthCareSystemInterface() {
         <Route path="/update_patient/:patientId" element={<UpdatePatient />} />
         <Route path="/add_history/:patientId" element={<AddHistory />} />
         <Route path="/add_consult/:patientId" element={<AddConsult />} />
+        <Route path="/add_discharge_note/:patientId" element={<AddDischargeNote />} />
       </Routes>
     </div>
   );
