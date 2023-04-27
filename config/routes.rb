@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'providers#create'
   get '/me', to: 'providers#show'
   delete '/logout', to: 'sessions#destroy'
+
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
