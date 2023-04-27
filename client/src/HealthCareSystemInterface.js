@@ -16,6 +16,8 @@ import UpdatePatient from "./UpdatePatient";
 import AddHistory from "./AddHistory";
 import AddConsult from "./AddConsult";
 import AddDischargeNote from "./AddDischargeNote";
+import AddOperativeReport from "./AddOperativeReport";
+import AddProcedureNote from "./AddProcedureNote";
 
 function HealthCareSystemInterface() {
   const {user, setUser} = useContext(UserContext);
@@ -35,6 +37,8 @@ function HealthCareSystemInterface() {
         <Route path="/add_history/:patientId" element={<AddHistory />} />
         <Route path="/add_consult/:patientId" element={<AddConsult />} />
         <Route path="/add_discharge_note/:patientId" element={<AddDischargeNote />} />
+        <Route path="/add_operative_report/:patientId" element={<AddOperativeReport />} />
+        <Route path="/add_procedure_note/:patientId" element={<AddProcedureNote />} />
       </Routes>
     </div>
   );
