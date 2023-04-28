@@ -41,19 +41,19 @@ function AddSoapNote() {
         <h3>Progress note</h3>
         <form onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
-            <label>Subjective</label>
+            <label>Subjective:</label>
                 <br/>   
                 <textarea type="text" name="subjective" value={subjective} rows="6" cols="100" onChange={handleChange}/>
                 <br/>
-            <label>Objective</label>
+            <label>Objective:</label>
                 <br/>
                 <textarea type="text" name="objective" value={objective} rows="6" cols="100" onChange={handleChange}/>
                 <br/>
-            <label>Assessment</label>
+            <label>Assessment:</label>
                 <br/>
                 <textarea type="text" name="assessment" value={assessment} rows="6" cols="100" onChange={handleChange}/>
                 <br/>
-            <label>Plan</label>
+            <label>Plan:</label>
                 <br/>
                 <textarea type="text" name="plan" value={plan} rows="6" cols="100" onChange={handleChange}/>
                 <br/>

@@ -48,7 +48,7 @@ function UserProvider({children}) {
     }
     function displayDateAsNumbers(thisDate){
         const date = new Date(thisDate)
-        return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}}`
+        return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
     }
     function displayTime (thisDate){
         const date = new Date(thisDate)

@@ -26,6 +26,13 @@ function NavBar() {
             Appointments
           </NavLink>
           <NavLink
+            to="/patient_records"
+            style={({isActive}) => ({background: isActive ? 'red' : ''})}
+            className="navbar"
+          >
+            PatientRecords
+          </NavLink>
+          <NavLink
             to="/signout"
             style={({isActive}) => ({background: isActive ? 'red' : ''})}
             className="navbar"
