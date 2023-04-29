@@ -84,7 +84,7 @@ function AddHistory() {
             <label>Family history: </label>
                 <input type='text' name='family_history' value={family_history} onChange={handleChange} />
                 <br />
-            <label>Review_of_systems: </label>
+            <label>Review of systems: </label>
                 <input type='text' name='review_of_systems' value={review_of_systems} onChange={handleChange} />
                 <br />
             <label>Vital signs: </label>
