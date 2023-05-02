@@ -11,6 +11,6 @@ class ConsultSerializer < ActiveModel::Serializer
     first = self.object.chart.patient.first_name
     last = self.object.chart.patient.last_name
     dob = self.object.chart.patient.birth_date
-    "#{last}, #{first} #{dob.strftime("%Y-%m-%d %H:%M:%S")}"
+    "#{last}, #{first} DOB: #{dob.strftime("%m/%d/%Y")}"
   end
 end
