@@ -65,14 +65,12 @@ function AddPatient() {
   return (
     <div>
         <h3>Please enter information below</h3>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>First name</label>
                 <input type="text" name="first_name" value={first_name} onChange={handleChange}/>
-            <br />
             <label>Middle name</label>
                 <input type="text" name="middle_name" value={middle_name} onChange={handleChange}/>
-            <br />
             <label>Last name</label>
                 <input type="text" name="last_name" value={last_name} onChange={handleChange}/>
             <br />

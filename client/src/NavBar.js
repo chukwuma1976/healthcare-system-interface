@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
     return (
-        <div>
+        <div className="d-flex justify-content-start">
           <NavLink
             to="/"
             style={({isActive}) => ({background: isActive ? 'red' : ''})}

@@ -18,7 +18,7 @@ function HomePage() {
             <br/>
             <br/>
             {!displayProfile ? null :
-            <div className='instructions'>
+            <div className='provider-profile'>
                 <h4>Your Profile</h4>
                 <p>Full Name: {first_name} {middle_name} {last_name}</p>
                 <p>Username: {username}</p>
@@ -32,10 +32,8 @@ function HomePage() {
             <br/>
             <NavLink to="/appointments" style={{color: 'blue'}}>Appointments </NavLink>
             <br/>
-            {/* <NavLink to="/members" style={{color: 'blue'}}>Members </NavLink>
+            <NavLink to="/patient_records" style={{color: 'blue'}}>Patient Records </NavLink>
             <br/>
-            <NavLink to="/songs" style={{color: 'blue'}}>Songs </NavLink>
-            <br/> */}
             <NavLink to="/signout" style={{color: 'blue'}}>Log Out </NavLink>
         </div>
     )

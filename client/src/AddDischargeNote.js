@@ -62,9 +62,9 @@ function AddDischargeNote() {
     }
   return (
     <div>
-        <h3>Discharge Summary</h3>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
+        <h3>Discharge Summary for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <form class='form' onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>Date of admission: </label>
             <DatePicker 
                 showIcon
@@ -97,10 +97,10 @@ function AddDischargeNote() {
             <label>Hospital course: </label>
                 <br />
                 <textarea 
+                    className='form-control'
                     type='text' 
                     name='hospital_course' 
                     value={hospital_course} 
-                    rows="20" cols="180" 
                     onChange={handleChange} 
                 />
                 <br />

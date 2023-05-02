@@ -43,10 +43,9 @@ function AddProcedureNote() {
 
   return (
     <div>
-        <h3>Procedure Note</h3>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
-            <label>Date of operation: </label>
+        <h3>Procedure Note for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <form  className='form' onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>Indications: </label>
                 <input type='text' name='indications' value={indications} onChange={handleChange} />
                 <br />
@@ -56,10 +55,10 @@ function AddProcedureNote() {
             <label>Name of procedure and description: </label>
                 <br />
                 <textarea 
+                    className='form-control'
                     type='text' 
                     name='description' 
                     value={description} 
-                    rows="10" cols="180" 
                     onChange={handleChange} 
                 />
                 <br />

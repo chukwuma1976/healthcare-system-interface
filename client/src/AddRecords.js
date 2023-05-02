@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {useParams, NavLink} from 'react-router-dom'
 
 function AddRecords() {
     const {patientId}=useParams()
   return (
     <div>
-        <p>AddRecords {patientId}</p>
+        <p>Add a record by clicking on a button below</p>
         <NavLink to={`/add_soap_note/${patientId}`} style={{color: 'blue'}}>
           <button>Add a SOAP note</button>
         </NavLink>

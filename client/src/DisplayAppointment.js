@@ -18,17 +18,14 @@ function DisplayAppointment({appointment}) {
     }
 
     return (
-    <div>
-      <p>{patient.first_name} {patient.last_name}</p> 
+    <div className="physician">
+      <h4>{patient.first_name} {patient.last_name}</h4> 
       <p>Type of appointment: {type_of_appointment}</p>
       <p>Location: {location}</p>
       <p>Date: {displayDate(date)} Time: {displayTime(date)}</p>
       <NavLink to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
           <button>Add Records</button>
       </NavLink> 
-      <NavLink to={`/update_patient/${patient_id}`} style={{color: 'blue'}}>
-          <button>Update Patient Information</button>
-      </NavLink>
       <br />
       <button onClick={()=>{setDisplayEdit(!displayEdit)}}>
         {!displayEdit ? "Click to Edit Appointment" : "Hide Edit Form"}

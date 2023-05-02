@@ -12,15 +12,31 @@ code {
     monospace;
 }
 
+h1, h2 {
+  text-align: center;
+}
+
 .form {
-  background: seashell;
+  background: whitesmoke;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  text-align: left;
+}
+.form p {color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.form-small p {color: blue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.form-small {
+  background: whitesmoke;
+  padding: 10px;
   width: auto;
   height: auto;
   border: 1px solid black;
   text-align: center;
-}
-.form p {color: red;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .navbar {
   display: inline-block;
@@ -67,9 +83,64 @@ code {
 .date{
   text-align: right;
 }
-/* .react-datepicker-wrapper,
-.react-datepicker__input-container,
-.react-datepicker__input-container input {
-    display: block;
-    width: 50%;
-} */
+.container-sm {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  border-radius: 4em;
+  background-color: beige;
+  text-align: center;
+}
+.provider-profile {
+  width: fit-content;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  border-radius: 4em;
+  background-color: beige;
+  text-align: center;
+  display: inline-block;
+}
+.physician {
+  width: fit-content;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  background-color: white;
+  text-align: center;
+  display: inline-block;
+}
+
+.container-md {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  border-radius: 4em;
+  background-color: lightgrey;
+  text-align: center;
+}
+.container {
+  text-align: center;
+}
+.container-lg {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid gray;
+  border-radius: 1em;
+  background-color: lightgrey;
+  text-align: left;
+}
+.record {
+  background: whitesmoke;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  text-align: left;
+}
+.record p {color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+form textarea {
+  width:auto;
+}

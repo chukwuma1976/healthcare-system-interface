@@ -35,8 +35,8 @@ function AppointmentForm({patientId, setDisplay}) {
     }
   return (
     <div>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
+        <form className="form-small" onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>Type of appointment</label>
             <select onChange={e=>setType(e.target.value)}>
                 <option></option>

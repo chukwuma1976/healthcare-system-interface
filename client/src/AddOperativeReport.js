@@ -65,9 +65,9 @@ function AddOperativeReport() {
 
   return (
     <div>
-        <h3>Operative Report</h3>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
+        <h3>Operative Report for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <form className='form' onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>Date of operation: </label>
             <DatePicker 
                 showIcon
@@ -108,10 +108,10 @@ function AddOperativeReport() {
             <label>Description of operation: </label>
                 <br />
                 <textarea 
+                    className='form-control'
                     type='text' 
                     name='description' 
                     value={description} 
-                    rows="20" cols="180" 
                     onChange={handleChange} 
                 />
                 <br />

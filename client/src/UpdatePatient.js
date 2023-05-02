@@ -45,7 +45,7 @@ function UpdatePatient() {
     }
     function handleUpdate(updatedPatient) {
         const updated = patients.map(patient=>{
-            if (patient.id===patientId) return updatedPatient
+            if (patient.id===updatedPatient.id) return updatedPatient
                 else return patient
         })
         setPatients(updated)
@@ -67,7 +67,7 @@ function UpdatePatient() {
         })
         .then(res=>{
             if (res.ok){
-                res.json().then(patient=>handleUpdate(patient))
+                res.json().then(handleUpdate)
                 navigate('/appointments')
             } else {res.json().then(error=>setErrors(error.errors))}
         })
@@ -75,17 +75,14 @@ function UpdatePatient() {
   return (
     <div>
         <h3>Please enter information below to update {currentPatient.first_name} {currentPatient.last_name}'s profile</h3>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
+        <form class="form" onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>Update first name</label>
                 <input type="text" name="first_name" value={first_name} onChange={handleChange}/>
-            <br />
             <label>Update middle name</label>
                 <input type="text" name="middle_name" value={middle_name} onChange={handleChange}/>
-            <br />
             <label>Update last name</label>
                 <input type="text" name="last_name" value={last_name} onChange={handleChange}/>
-            <br />
             <label>Update sex</label>
             <select onChange={(e)=>setPatient({...patient, sex:e.target.value})}>
                 <option></option>

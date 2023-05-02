@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import AppointmentForm from './AppointmentForm'
+import { NavLink } from 'react-router-dom'
 
 function AppointmentByPatient({patient}) {
     const {
@@ -25,7 +26,7 @@ function AppointmentByPatient({patient}) {
             </button>
             {!displayPatientInfo ? null : 
             <div>
-                {image ===''? null: <img src={image} alt='patient image'/>}
+                {image ===''? null: <img src={image} alt='patient'/>}
                 <p>{image}</p>
                 <p>DOB: {birthday.getMonth()}/{birthday.getDate()}/{birthday.getFullYear()} sex: {sex}</p>
                 <p>Address: {address}</p>
@@ -37,6 +38,9 @@ function AppointmentByPatient({patient}) {
                 {!makeAppointment? "Click to make an appointment" : "Hide appointment form"}
             </button>
             {makeAppointment? <AppointmentForm patientId={id} setDisplay={setMakeAppointment}/> : null}
+            <NavLink to={`/update_patient/${id}`} style={{color: 'blue'}}>
+                <button>Update Patient Information</button>
+            </NavLink>
             <br/>
         </div>
   )

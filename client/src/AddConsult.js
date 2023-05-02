@@ -58,11 +58,21 @@ function AddConsult() {
     }
   return (
     <div>
-        <h3>Consult</h3>
-        {errors.map(error=><p key={error}>{error}</p>)}
-        <form onSubmit={handleSubmit}>
+        <h3>Consult for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <form class='form' onSubmit={handleSubmit}>
+            {errors.map(error=><p key={error}>{error}</p>)}
             <label>Reason for consult: </label>
                 <input type='text' name='reason_for_consult' value={reason_for_consult} onChange={handleChange} />
+                <br />
+            <label>History of present illness: </label>
+                <br />
+                <textarea 
+                    className='form-control'
+                    type='text' 
+                    name='history_of_present_illness' 
+                    value={history_of_present_illness} 
+                    onChange={handleChange} 
+                />
                 <br />
             <label>Past medical history: </label>
                 <input type='text' name='past_medical_history' value={past_medical_history} onChange={handleChange} />
@@ -85,43 +95,33 @@ function AddConsult() {
             <label>Vital signs: </label>
                 <input type='text' name='vital_signs' value={vital_signs} onChange={handleChange} />
                 <br />
-            <label>History of present illness: </label>
-                <br />
-                <textarea 
-                    type='text' 
-                    name='history_of_present_illness' 
-                    value={history_of_present_illness} 
-                    rows="15" cols="180" 
-                    onChange={handleChange} 
-                />
-                <br />
             <label>Physical Exam: </label>
                 <br />
                 <textarea 
+                    className='form-control'
                     type='text' 
                     name='physical_exam' 
                     value={physical_exam} 
-                    rows="15" cols="180" 
                     onChange={handleChange} 
                 />
                 <br />
             <label>Assessment: </label>
                 <br />
                 <textarea 
+                    className='form-control'
                     type='text' 
                     name='assessment' 
                     value={assessment} 
-                    rows="10" cols="180" 
                     onChange={handleChange} 
                 />
                 <br />
             <label>Plan: </label>
                 <br />
                 <textarea 
+                    className='form-control'
                     type='text' 
                     name='plan' 
                     value={plan} 
-                    rows="10" cols="180" 
                     onChange={handleChange} 
                 />
                 <br />
