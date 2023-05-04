@@ -83,6 +83,12 @@ h1, h2 {
 .date{
   text-align: right;
 }
+.signature {
+  text-align: right;
+}
+.patient {
+  text-align: center; 
+}
 .container-sm {
   padding: 10px;
   margin: 10px;
@@ -125,7 +131,7 @@ h1, h2 {
   padding: 10px;
   margin: 10px;
   border: 2px solid blue;
-  border-radius: 4em;
+  border-radius: 1em;
   background-color: lightgrey;
   text-align: center;
 }

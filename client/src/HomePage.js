@@ -9,9 +9,7 @@ function HomePage() {
     const [displayProfile, setDisplayProfile] = useState(false)
     return (
         <div className='home-page'>
-            <p className='date'>
-                <Clock/>
-            </p>
+            <Clock />
             <h1>Hello {first_name} {last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
             <button onClick={()=>setDisplayProfile(!displayProfile)}>
                {!displayProfile?  `${first_name} Click To See Profile` : 'Hide Profile'}
