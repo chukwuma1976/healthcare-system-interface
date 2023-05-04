@@ -19,11 +19,10 @@ function Appointments() {
     const appointmentList = appointments.map(appointment =>
         <DisplayAppointment key={appointment.id} appointment={appointment}/>)
   return (
-    <div className="container">
+    <div className="d-grid gap-2">
         <button className="btn btn-primary btn-lg" onClick={()=>setDisplayPatients(!displayPatients)}>
             {!displayPatients? 'Click to make an appointment with an existing patient' :  'Click to hide patients and forms'}
         </button>
-        <br/><br/>
         {!displayPatients? null: 
         (<div className="container-md">
             <div className="d-flex justify-content-center">
@@ -35,7 +34,6 @@ function Appointments() {
         <button className="btn btn-primary btn-lg" onClick={()=>setWantPatient(!wantPatient)}>
             {!wantPatient? 'Click to add a new patient' :  'Click to hide new patient form'}
         </button>
-        <br/><br/>
         {wantPatient? <AddPatient /> : null}
         <button className="btn btn-primary btn-lg" onClick={()=>setDisplayAppointments(!displayAppointments)}>
             {!displayAppointments? 

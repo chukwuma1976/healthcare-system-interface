@@ -17,7 +17,7 @@ function DisplayAppointment({appointment}) {
       alert(`You have deleted the ${appointment.type_of_appointment} appointment for ${patient.first_name} ${patient.last_name}!`)
     }
 
-    return (
+  return (
     <div className="card">
       <h4 className='card-header'>{patient.first_name} {patient.last_name}</h4> 
       <p>Type of appointment: {type_of_appointment}</p>

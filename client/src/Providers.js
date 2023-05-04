@@ -11,7 +11,7 @@ function Providers() {
     const providerList = providers.map(provider => <ShowProviderPatients key={provider.id} provider={provider} />)
 
   return (
-    <div class="container-sm">
+    <div className="container-sm">
         <h1>Providers</h1>
         <h3>Click a provider to see their patient list</h3>
         {providerList}

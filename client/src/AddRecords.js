@@ -1,11 +1,16 @@
 import React, {useContext} from 'react'
 import {useParams, NavLink} from 'react-router-dom'
+import { UserContext } from './User'
 
 function AddRecords() {
-    const {patientId}=useParams()
+    const {patientId} = useParams()
+    const {patients, user} = useContext(UserContext)
+    const thisPatient = patients.find(patient => patient.id === parseInt(patientId))
   return (
     <div>
-        <p>Add a record by clicking on a button below</p>
+        <h4>
+          {user.first_name} {user.last_name} add a record for {thisPatient.first_name} {thisPatient.last_name} by clicking on a button below
+        </h4>
         <NavLink to={`/add_soap_note/${patientId}`} style={{color: 'blue'}}>
           <button>Add a SOAP note</button>
         </NavLink>
