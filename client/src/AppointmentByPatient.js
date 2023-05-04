@@ -37,8 +37,8 @@ function AppointmentByPatient({patient}) {
                 {!makeAppointment? "Click to make an appointment" : "Hide appointment form"}
             </button>
             {makeAppointment? <AppointmentForm patientId={id} setDisplay={setMakeAppointment}/> : null}
-            <NavLink to={`/update_patient/${id}`} style={{color: 'blue'}}>
-                <button>Update Patient Information</button>
+            <NavLink class="d-grid gap-2" to={`/update_patient/${id}`} style={{color: 'blue'}}>
+                <button type='button'>Update Patient Information</button>
             </NavLink>
             <br/>
         </div>
