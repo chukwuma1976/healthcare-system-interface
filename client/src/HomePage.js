@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { UserContext } from './User';
+import Clock from './Clock';
 
 function HomePage() {
     const {user, today, displayDate, displayTime} = useContext(UserContext)
@@ -9,7 +10,7 @@ function HomePage() {
     return (
         <div className='home-page'>
             <p className='date'>
-                Date: {displayDate(today)} Time: {displayTime(today)}
+                <Clock/>
             </p>
             <h1>Hello {first_name} {last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
             <button onClick={()=>setDisplayProfile(!displayProfile)}>
@@ -18,9 +19,8 @@ function HomePage() {
             <br/>
             <br/>
             {!displayProfile ? null :
-            <div className='provider-profile'>
-                <h4>Your Profile</h4>
-                <p>Full Name: {first_name} {middle_name} {last_name}</p>
+            <div className='card'>
+                <h4 className='card-header'>Full Name: {first_name} {middle_name} {last_name}</h4>
                 <p>Username: {username}</p>
                 <p>Type of Provider: {type_of_provider}</p>
                 <p>Department: {department}</p>
@@ -28,13 +28,18 @@ function HomePage() {
             }
             <h2>Please feel free to navigate to other parts of this app and start managing your patient records</h2>
             <br/>
-            <NavLink to="/providers" style={{color: 'blue'}}>Providers </NavLink>
-            <br/>
-            <NavLink to="/appointments" style={{color: 'blue'}}>Appointments </NavLink>
-            <br/>
-            <NavLink to="/patient_records" style={{color: 'blue'}}>Patient Records </NavLink>
-            <br/>
-            <NavLink to="/signout" style={{color: 'blue'}}>Log Out </NavLink>
+            <NavLink to="/providers" style={{color: 'blue'}}>
+                <button>Providers</button>
+            </NavLink>
+            <NavLink to="/appointments" style={{color: 'blue'}}>
+                <button>Appointments</button>
+            </NavLink>
+            <NavLink to="/patient_records" style={{color: 'blue'}}>
+                <button>Patient Records</button>
+            </NavLink>
+            <NavLink to="/signout" style={{color: 'blue'}}>
+                <button>Log Out</button>
+            </NavLink>
         </div>
     )
 }

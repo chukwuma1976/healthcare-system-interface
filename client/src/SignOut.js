@@ -13,7 +13,7 @@ function SignOut() {
     }
 
     return (
-        <div className='form'>
+        <div className='container'>
             <h1>{user.first_name} do you want to Log Out ?</h1> 
             <button onClick={()=>setWantToLogOut(!wantToLogOut)}>Click Here</button>
             {wantToLogOut? 

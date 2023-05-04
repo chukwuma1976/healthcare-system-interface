@@ -25,7 +25,7 @@ function UserProvider({children}) {
         .then(setAppointments)
     },[])
 
-    const today = new Date()
+    const [today, setToday] = useState(new Date())
 
     function displayDate(thisDate) {
         const date = new Date(thisDate)
@@ -48,11 +48,15 @@ function UserProvider({children}) {
     }
     function displayDateAsNumbers(thisDate){
         const date = new Date(thisDate)
-        return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+        return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
     }
     function displayTime (thisDate){
         const date = new Date(thisDate)
-        return `${date.getHours()%12}:${date.getMinutes() < 10? `0${date.getMinutes()}` : date.getMinutes()} ${date.getHours()>12 ? "PM":"AM"}`
+        const hours = date.getHours()===0 ? "12":date.getHours()%12
+        const minutes = date.getMinutes() < 10? `0${date.getMinutes()}` : date.getMinutes()
+        const seconds = date.getSeconds()<10? `0${date.getSeconds()}`: date.getSeconds()
+        const amOrPm =date.getHours()>12 ? "PM":"AM"
+        return `${hours}:${minutes}:${seconds} ${amOrPm}`
     }
 
     return (
@@ -60,7 +64,7 @@ function UserProvider({children}) {
             user, setUser,  
             patients, setPatients,
             appointments, setAppointments,
-            today, displayDate, displayTime, displayDateAsNumbers
+            today, setToday, displayDate, displayTime, displayDateAsNumbers
         }}>
             {children}
         </UserContext.Provider>

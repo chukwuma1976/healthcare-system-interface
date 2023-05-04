@@ -111,6 +111,16 @@ h1, h2 {
   display: inline-block;
 }
 
+.appointment {
+  width: 80% ;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  background-color: white;
+  text-align: center;
+  display: inline-block;
+}
+
 .container-md {
   padding: 10px;
   margin: 10px;

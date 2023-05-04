@@ -20,10 +20,10 @@ function Appointments() {
         <DisplayAppointment key={appointment.id} appointment={appointment}/>)
   return (
     <div className="container">
-        <h2>Click button below to make an appointment with an existing patient</h2>
-        <button onClick={()=>setDisplayPatients(!displayPatients)}>
-            {!displayPatients? 'Click to see patients' :  'Click to hide patients'}
+        <button className="btn btn-primary btn-lg" onClick={()=>setDisplayPatients(!displayPatients)}>
+            {!displayPatients? 'Click to make an appointment with an existing patient' :  'Click to hide patients and forms'}
         </button>
+        <br/><br/>
         {!displayPatients? null: 
         (<div className="container-md">
             <div className="d-flex justify-content-center">
@@ -32,18 +32,19 @@ function Appointments() {
             </div>
             {patientList}
         </div>)}
-        <h2>Click button to add a new patient</h2>
-        <button onClick={()=>setWantPatient(!wantPatient)}>
+        <button className="btn btn-primary btn-lg" onClick={()=>setWantPatient(!wantPatient)}>
             {!wantPatient? 'Click to add a new patient' :  'Click to hide new patient form'}
         </button>
+        <br/><br/>
         {wantPatient? <AddPatient /> : null}
-        <h2>Click button to display appointments for {user.first_name} {user.last_name}</h2>
-        <h3>Number of scheduled appointments: {appointments.length}</h3>
-        <button onClick={()=>setDisplayAppointments(!displayAppointments)}>
-            {!displayAppointments? 'Display Appointments' : 'Hide Appointments'}
+        <button className="btn btn-primary btn-lg" onClick={()=>setDisplayAppointments(!displayAppointments)}>
+            {!displayAppointments? 
+            `Click to display appointments for ${user.first_name} ${user.last_name}` :
+             `Click to hide appointments for ${user.first_name} ${user.last_name}`}
         </button>
         {displayAppointments? 
             <div className="container-md">
+                <h3>Number of scheduled appointments: {appointments.length}</h3>
                 {appointmentList} 
             </div>: null}       
     </div>

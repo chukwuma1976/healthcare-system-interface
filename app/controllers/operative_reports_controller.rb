@@ -34,8 +34,8 @@ class OperativeReportsController < ApplicationController
     end
 
     def operative_report_params
-        params.permit(:chart_id, :provider_id, :date, :indications, :preoperative_diagnois, 
-            :postperative_diagnois, :procedure, :assistants, :anesthesiologist, :anesthesia, :fluids, 
+        params.permit(:chart_id, :provider_id, :date, :indications, :preoperative_diagnosis, 
+            :postoperative_diagnosis, :procedure, :assistants, :anesthesiologist, :anesthesia, :fluids, 
             :estimated_blood_loss, :description, :complications,)
     end
 

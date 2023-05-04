@@ -41,6 +41,7 @@ function AddOperativeReport() {
         complications} = operativeReport
 
     function handleSubmit(e){
+        console.log(operativeReport)
         e.preventDefault()
         fetch(`/patients/${patientId}/operative_reports`,{
             method: 'POST',
@@ -84,7 +85,7 @@ function AddOperativeReport() {
             <label>Preoperative diagnosis: </label>
                 <input type='text' name='preoperative_diagnosis' value={preoperative_diagnosis} onChange={handleChange} />
                 <br />
-            <label>Discharge diagnosis: </label>
+            <label>Postoperative diagnosis: </label>
                 <input type='text' name='postoperative_diagnosis' value={postoperative_diagnosis} onChange={handleChange} />
                 <br />
             <label>Name of operation: </label>
