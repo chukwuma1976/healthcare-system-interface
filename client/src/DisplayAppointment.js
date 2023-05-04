@@ -23,8 +23,8 @@ function DisplayAppointment({appointment}) {
       <p>Type of appointment: {type_of_appointment}</p>
       <p>Location: {location}</p>
       <p>Date: {displayDate(date)} Time: {displayTime(date)}</p>
-      <NavLink to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
-          <button>Add Records</button>
+      <NavLink className="d-grid gap-2" to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
+          <button type='button'>Add Records</button>
       </NavLink> 
       <button className='button' onClick={()=>{setDisplayEdit(!displayEdit)}}>
         {!displayEdit ? "Click to Edit Appointment" : "Hide Edit Form"}
