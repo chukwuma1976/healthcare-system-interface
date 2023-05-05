@@ -14,6 +14,7 @@ function AppointmentByPatient({patient}) {
         email_address, 
         image,
         insurance,
+        providers
     } = patient
     const birthday = new Date(birth_date)
     const [displayPatientInfo, setDisplayPatientInfo] = useState(false)
@@ -32,6 +33,11 @@ function AppointmentByPatient({patient}) {
                 <p>Phone number: {phone_number}</p>
                 <p>Email address: {email_address}</p>
                 <p>Insurance: {insurance}</p>
+                <div className="card-footer text-body-secondary">
+                    <h6>Providers seen from HCSI: </h6> 
+                    {providers.length === 0 ? <p>none</p>
+                     : providers.map(provider=><p key={provider.id}>{provider.last_name}, {provider.first_name}</p>)}
+                </div>
             </div>}
             <button onClick={()=>setMakeAppointment(!makeAppointment)}>
                 {!makeAppointment? "Click to make an appointment" : "Hide appointment form"}
