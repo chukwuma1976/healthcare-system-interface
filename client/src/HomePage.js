@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { UserContext } from './User';
 import Clock from './Clock';
-import EmailContactForm from './EmailContactForm';
 
 function HomePage() {
     const {user, today, displayDate, displayTime} = useContext(UserContext)
@@ -39,7 +38,6 @@ function HomePage() {
             <NavLink to="/signout" style={{color: 'blue'}}>
                 <button>Log Out</button>
             </NavLink>
-            <EmailContactForm />
         </div>
     )
 }

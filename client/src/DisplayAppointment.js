@@ -2,12 +2,14 @@ import React, {useContext, useState} from 'react'
 import { UserContext } from './User'
 import EditAppointment from './EditAppointment'
 import { NavLink} from 'react-router-dom'
+import EmailContactForm from './EmailContactForm';
 
 function DisplayAppointment({appointment}) {
     const {patient_id, type_of_appointment, location, date} = appointment   
     const {patients, displayDate, displayTime, appointments, setAppointments} = useContext(UserContext)
     const patient = patients.find(patient=> patient.id === patient_id)
     const [displayEdit, setDisplayEdit] = useState(false)
+    const [displayEmail, setDisplayEmail] = useState(false)
 
     function deleteAppointment(){
       fetch(`/appointments/${appointment.id}`, {
@@ -31,7 +33,15 @@ function DisplayAppointment({appointment}) {
       </button>
       {displayEdit ? <EditAppointment thisAppt={appointment} setDisplay={setDisplayEdit}/> : null}
       <button className='button' onClick={deleteAppointment}>Click to Delete Appointment</button>
-      <br />
+      <button className='button' onClick={()=>setDisplayEmail(!displayEmail)}>
+        {displayEmail ? 'Click to Hide Email Contact Form' : 'Click to Display Email Contact Form and Send Email'}
+      </button>
+      {displayEmail ? 
+        <div>
+            <p>Cut and paste this as the recipient email address: {patient.email_address}</p>
+            <EmailContactForm setDisplay={setDisplayEmail} />
+        </div>
+       : null}
     </div>
   )
 }
