@@ -11,6 +11,7 @@ function AddPatient() {
     const [birthDate, setBirthDate] = useState(new Date())
     const [phoneNumber, setPhoneNumber] = useState()
     const [makeAppointment, setMakeAppointment] = useState(false)
+    const [success, setSuccess] = useState(false)
     const [errors, setErrors] = useState([])
     const [patient, setPatient] = useState({
         first_name: '',
@@ -59,9 +60,9 @@ function AddPatient() {
             if (res.ok){
                 res.json().then(patient=>{
                     setPatients([...patients, patient])
-                    setAppointments([...appointments, ...patient.appointments])
+                    setPatient(patient)
+                    setSuccess(true)
                 })
-                setMakeAppointment(true)
             } else {res.json().then(error=>setErrors(error.errors))}
         })
     }
@@ -116,13 +117,14 @@ function AddPatient() {
             <br />
             <button type="submit">Submit</button>
         </form>
-        {!patient.id? null: 
-            (<div>
-                <button onClick={()=>setMakeAppointment(!makeAppointment)}>
+            {!success ? null : 
+                <h5 class="alert alert-success" role="alert">You have added {patient.first_name} {patient.last_name}.  Please schedule an appointment below</h5>}
+            <div className="card">
+                <button className="d-grid gap-2" onClick={()=>setMakeAppointment(!makeAppointment)}>
                     {!makeAppointment? "Click to make an appointment" : "Hide appointment form"}
                 </button>
                 {makeAppointment? <AppointmentForm patientId={patient.id} setDisplay={setMakeAppointment}/> : null}
-            </div>) }
+            </div> 
     </div>
   )
 }
