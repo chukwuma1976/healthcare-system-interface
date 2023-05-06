@@ -27,7 +27,6 @@ function AppointmentForm({patientId, setDisplay}) {
         }).then(res=>{
             if(res.ok){
                 res.json().then(appointment=>setAppointments([...appointments, appointment]))
-                alert('You have successfully booked an appointment')
                 setDisplay(false)
             } else {res.json().then(error=>setErrors(error.errors))}
             }

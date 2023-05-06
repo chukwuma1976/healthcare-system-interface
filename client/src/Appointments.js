@@ -56,8 +56,9 @@ function Appointments() {
         {wantPatient? <AddPatient /> : null}
         <button className="btn btn-primary btn-lg" onClick={()=>setDisplayAppointments(!displayAppointments)}>
             {!displayAppointments? 
-            `Click to display appointments for ${user.first_name} ${user.last_name}` :
-             `Click to hide appointments for ${user.first_name} ${user.last_name}`}
+            `Click to display appointments for ${user.first_name} ${user.last_name} ` :
+             `Click to hide appointments for ${user.first_name} ${user.last_name} `}
+             <span class="badge text-bg-secondary">{appointments.length}</span>
         </button>
         {displayAppointments? 
             <div className="container-md">

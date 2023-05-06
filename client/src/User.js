@@ -13,17 +13,25 @@ function UserProvider({children}) {
                 res.json().then(setUser)
             }
         })
-    }, [])
-    useEffect(()=>{
+
         fetch('/patients')
         .then(res=>res.json())
         .then(setPatients)
-    },[])
-    useEffect(()=>{
+
         fetch('/appointments')
         .then(res=>res.json())
         .then(setAppointments)
-    },[])
+    }, [])
+    // useEffect(()=>{
+    //     fetch('/patients')
+    //     .then(res=>res.json())
+    //     .then(setPatients)
+    // },[])
+    // useEffect(()=>{
+    //     fetch('/appointments')
+    //     .then(res=>res.json())
+    //     .then(setAppointments)
+    // },[])
 
     const [today, setToday] = useState(new Date())
 

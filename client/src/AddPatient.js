@@ -7,7 +7,7 @@ import PhoneInput from 'react-phone-number-input'
 import AppointmentForm from './AppointmentForm';
 
 function AddPatient() {
-    const { patients, setPatients } = useContext(UserContext)
+    const { patients, setPatients, appointments, setAppointments } = useContext(UserContext)
     const [birthDate, setBirthDate] = useState(new Date())
     const [phoneNumber, setPhoneNumber] = useState()
     const [makeAppointment, setMakeAppointment] = useState(false)
@@ -57,7 +57,10 @@ function AddPatient() {
         })
         .then(res=>{
             if (res.ok){
-                res.json().then(patient=>setPatients([...patients, patient]))
+                res.json().then(patient=>{
+                    setPatients([...patients, patient])
+                    setAppointments([...appointments, ...patient.appointments])
+                })
                 setMakeAppointment(true)
             } else {res.json().then(error=>setErrors(error.errors))}
         })

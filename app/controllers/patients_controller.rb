@@ -16,7 +16,9 @@ class PatientsController < ApplicationController
 
     def create
         patient = current_provider.patients.create!(patient_params)
-        Chart.create(patient_id: patient.id)
+        patients_chart=Chart.create(patient_id: patient.id)
+        new_appointment=patient.appointments.first
+        new_appointment.update(type_of_appointment: "pending type", location: "pending location", date: Time.new)
         render json: patient, status: :created
     end
 

@@ -81,6 +81,16 @@ h1, h2 {
   padding: 20px
 }
 .date{
+  width: fit-content;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  border-radius: 2em;
+  background-color: beige;
+  text-align: right;
+  display: inline-block;
+}
+.date-container {
   text-align: right;
 }
 .signature {
