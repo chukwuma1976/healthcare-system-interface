@@ -35,11 +35,12 @@ function AddPatient() {
     } = patient
 
     function handleChange(event){
-        if (event.target.name==="image"){
-            setPatient({...patient, image: URL.createObjectURL(event.target.files[0])})
-        } else {
-            setPatient({...patient, [event.target.name]:event.target.value})
-        }
+        setPatient({...patient, [event.target.name]:event.target.value})
+        // if (event.target.name==="image"){
+        //     setPatient({...patient, image: URL.createObjectURL(event.target.files[0])})
+        // } else {
+        //     setPatient({...patient, [event.target.name]:event.target.value})
+        // }
     }
     function addBirthDate(date){
         setBirthDate(date)
@@ -97,7 +98,8 @@ function AddPatient() {
                 showMonthDropdown
             />
             <label>Image</label>
-                <input type="file"  name="image" accept="image/*" onChange={handleChange}/>
+                {/* <input type="file"  name="image" accept="image/*" onChange={handleChange}/> */}
+                <input type="text"  name="image" accept="image/*" onChange={handleChange}/>
             <br />
             <label>Enter address</label>
                 <input type="text" name="address" value={address} onChange={handleChange}/>

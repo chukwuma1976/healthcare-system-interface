@@ -34,11 +34,12 @@ function UpdatePatient({currentPatient, display, setDisplay, closeDisplay}) {
     } = patient
 
     function handleChange(event){
-        if (event.target.name==="image"){
-            setPatient({...patient, image: URL.createObjectURL(event.target.files[0])})
-        } else {
-            setPatient({...patient, [event.target.name]:event.target.value})
-        }
+        setPatient({...patient, [event.target.name]:event.target.value})
+        // if (event.target.name==="image"){
+        //     setPatient({...patient, image: URL.createObjectURL(event.target.files[0])})
+        // } else {
+        //     setPatient({...patient, [event.target.name]:event.target.value})
+        // }
     }
     function handleUpdate(updatedPatient) {
         const updated = patients.map(patient=>{
@@ -106,7 +107,8 @@ function UpdatePatient({currentPatient, display, setDisplay, closeDisplay}) {
                 showMonthDropdown
             />
             <label>Update image</label>
-                <input type="file"  name="image" accept="image/*" onChange={handleChange}/>
+                {/* <input type="file"  name="image" accept="image/*" onChange={handleChange}/> */}
+                <input type="text"  name="image" accept="image/*" onChange={handleChange}/>
             <br />
             <label>Update address</label>
                 <input type="text" name="address" value={address} onChange={handleChange}/>
