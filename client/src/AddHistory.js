@@ -3,13 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { UserContext } from './User'
 
 function AddHistory() {
-    const {patientId} = useParams()
-    const {patients, user} = useContext(UserContext)
+    const {patientId, chartId} = useParams()
+    const {user} = useContext(UserContext)
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
-    const thisPatient = patients.find(patient => patient.id === parseInt(patientId))
     const [history, setHistory] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: chartId,
         provider_id: user.id,
         chief_complaint: "",
         past_medical_history: "",
@@ -60,7 +59,7 @@ function AddHistory() {
     }
   return (
     <div>
-        <h3>History and Physical for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <h3>History and Physical</h3>
         <form className='form' onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
             <label>Chief complaint: </label>

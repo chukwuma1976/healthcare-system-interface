@@ -4,16 +4,13 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import { useParams, useNavigate } from 'react-router-dom';
 
-function UpdatePatient() {
-    const {patientId} = useParams()
-    const navigate = useNavigate()
+function UpdatePatient({currentPatient, display, setDisplay, closeDisplay}) {
     const { patients, setPatients } = useContext(UserContext)
     const [birthDate, setBirthDate] = useState(new Date())
     const [phoneNumber, setPhoneNumber] = useState()
     const [errors, setErrors] = useState([])
-    const currentPatient = patients.find(patient=>patient.id === parseInt(patientId))
+    console.log("patients: ", patients, "currentPatient: ", currentPatient, "patient id", currentPatient.id)
     const [patient, setPatient] = useState({
         first_name: currentPatient.first_name,
         middle_name: currentPatient.middle_name,
@@ -60,7 +57,7 @@ function UpdatePatient() {
     }
     function handleSubmit(event){
         event.preventDefault()
-        fetch(`/patients/${patientId}`, {
+        fetch(`/patients/${currentPatient.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(patient)
@@ -68,21 +65,28 @@ function UpdatePatient() {
         .then(res=>{
             if (res.ok){
                 res.json().then(handleUpdate)
-                navigate('/appointments')
+                setDisplay(false)
             } else {res.json().then(error=>setErrors(error.errors))}
         })
     }
+    if (!display) return null
   return (
     <div>
-        <h3>Please enter information below to update {currentPatient.first_name} {currentPatient.last_name}'s profile</h3>
-        <form class="form" onSubmit={handleSubmit}>
+        <form className="form" id="patient-update" onSubmit={handleSubmit}>
+        <button className="btn btn-outline-primary" onClick={closeDisplay}>Click to close</button>
+            <h5>
+                Please enter information below to update {currentPatient.first_name} {currentPatient.last_name}'s profile
+            </h5>
             {errors.map(error=><p key={error}>{error}</p>)}
             <label>Update first name</label>
                 <input type="text" name="first_name" value={first_name} onChange={handleChange}/>
+            <br/>
             <label>Update middle name</label>
                 <input type="text" name="middle_name" value={middle_name} onChange={handleChange}/>
+            <br/>
             <label>Update last name</label>
                 <input type="text" name="last_name" value={last_name} onChange={handleChange}/>
+            <br/>
             <label>Update sex</label>
             <select onChange={(e)=>setPatient({...patient, sex:e.target.value})}>
                 <option></option>
@@ -120,7 +124,7 @@ function UpdatePatient() {
             <label>Update name of insurance</label>
                 <input type="text" name="insurance" value={insurance} onChange={handleChange}/>
             <br />
-            <button type="submit">Submit</button>
+            <button className="btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
   )

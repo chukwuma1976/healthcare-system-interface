@@ -5,15 +5,14 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 function AddDischargeNote() {
-    const {patientId} = useParams()
-    const {patients, user} = useContext(UserContext)
+    const {patientId, chartId} = useParams()
+    const {user} = useContext(UserContext)
     const [errors, setErrors] = useState([])
     const [admissionDate, setAdmissionDate] = useState(new Date())
     const [dischargeDate, setDischargeDate] = useState(new Date())
     const navigate = useNavigate()
-    const thisPatient = patients.find(patient => patient.id === parseInt(patientId))
     const [dischargeNote, setDischargeNote] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: chartId,
         provider_id: user.id,
         date_of_admission: new Date(),
         date_of_discharge: new Date(),
@@ -62,7 +61,7 @@ function AddDischargeNote() {
     }
   return (
     <div>
-        <h3>Discharge Summary for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <h3>Discharge Summary</h3>
         <form class='form' onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
             <label>Date of admission: </label>

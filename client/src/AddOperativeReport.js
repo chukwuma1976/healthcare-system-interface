@@ -5,14 +5,13 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 function AddOperativeReport() {
-    const {patientId} = useParams()
-    const {patients, user} = useContext(UserContext)
+    const {patientId, chartId} = useParams()
+    const {user} = useContext(UserContext)
     const [errors, setErrors] = useState([])
     const [operativeDate, setOperativeDate] = useState(new Date())
     const navigate = useNavigate()
-    const thisPatient = patients.find(patient => patient.id === parseInt(patientId))
     const [operativeReport, setOperativeReport] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: chartId,
         provider_id: user.id,
         date: new Date(),
         indications: "",
@@ -41,7 +40,6 @@ function AddOperativeReport() {
         complications} = operativeReport
 
     function handleSubmit(e){
-        console.log(operativeReport)
         e.preventDefault()
         fetch(`/patients/${patientId}/operative_reports`,{
             method: 'POST',
@@ -66,7 +64,7 @@ function AddOperativeReport() {
 
   return (
     <div>
-        <h3>Operative Report for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <h3>Operative Report</h3>
         <form className='form' onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
             <label>Date of operation: </label>

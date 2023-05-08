@@ -21,20 +21,20 @@ function AppointmentByPatient({patient}) {
     const [makeAppointment, setMakeAppointment] = useState(false)
   return (
         <div className='card'>
-            <h4 className='card-header'>{last_name}, {first_name} {middle_name}</h4>
+            <h4 className='card-header text-bg-secondary mb-3'>{last_name}, {first_name} {middle_name}</h4>
             <button onClick={()=>setDisplayPatientInfo(!displayPatientInfo)}>
                 {!displayPatientInfo? 'Display Patient Information' : 'Hide Patient Information'}
             </button>
             {!displayPatientInfo ? null : 
             <div>
                 {image ===''? null: <img src={image} alt='patient'/>}
-                <p>DOB: {birthday.getMonth()}/{birthday.getDate()}/{birthday.getFullYear()} sex: {sex}</p>
-                <p>Address: {address}</p>
-                <p>Phone number: {phone_number}</p>
-                <p>Email address: {email_address}</p>
-                <p>Insurance: {insurance}</p>
+                <p><b>DOB:</b> {birthday.getMonth()}/{birthday.getDate()}/{birthday.getFullYear()} <b>Sex:</b> {sex}</p>
+                <p><b>Address:</b> {address}</p>
+                <p><b>Phone number:</b> {phone_number}</p>
+                <p><b>Email address:</b> {email_address}</p>
+                <p><b>Insurance:</b> {insurance}</p>
                 <div className="card-footer text-body-secondary">
-                    <h6>Providers seen from HCSI: </h6> 
+                    <h6>Associated providers from HCSI: </h6> 
                     {providers.length === 0 ? <p>none</p>
                      : providers.map(provider=><p key={provider.id}>{provider.last_name}, {provider.first_name}</p>)}
                 </div>
@@ -43,9 +43,6 @@ function AppointmentByPatient({patient}) {
                 {!makeAppointment? "Click to make an appointment" : "Hide appointment form"}
             </button>
             {makeAppointment? <AppointmentForm patientId={id} setDisplay={setMakeAppointment}/> : null}
-            <NavLink className="d-grid gap-2" to={`/update_patient/${id}`} style={{color: 'blue'}}>
-                <button type='button'>Update Patient Information</button>
-            </NavLink>
             <br/>
         </div>
   )

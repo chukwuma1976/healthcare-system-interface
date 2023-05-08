@@ -24,6 +24,16 @@ h1, h2 {
   border: 1px solid black;
   text-align: left;
 }
+#patient-update {
+  background: lightblue;
+  position: fixed;
+  left: 25%;
+  top: 5%;
+  width: 50%;
+}
+#patient-update h5 {
+  text-align: center;
+}
 .form p {color: red;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -85,7 +95,6 @@ h1, h2 {
   padding: 10px;
   margin: 10px;
   border: 2px solid blue;
-  border-radius: 2em;
   background-color: beige;
   text-align: right;
   display: inline-block;

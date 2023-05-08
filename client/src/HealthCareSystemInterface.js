@@ -35,13 +35,12 @@ function HealthCareSystemInterface() {
         <Route path="/patient_records" element={<PatientRecords />} />
 
         <Route path="/add_records/:patientId" element={<AddRecords />} />
-        <Route path="/add_soap_note/:patientId" element={<AddSoapNote />} />
-        <Route path="/update_patient/:patientId" element={<UpdatePatient />} />
-        <Route path="/add_history/:patientId" element={<AddHistory />} />
-        <Route path="/add_consult/:patientId" element={<AddConsult />} />
-        <Route path="/add_discharge_note/:patientId" element={<AddDischargeNote />} />
-        <Route path="/add_operative_report/:patientId" element={<AddOperativeReport />} />
-        <Route path="/add_procedure_note/:patientId" element={<AddProcedureNote />} />
+        <Route path="/add_soap_note/:patientId/:chartId" element={<AddSoapNote />} />
+        <Route path="/add_history/:patientId/:chartId" element={<AddHistory />} />
+        <Route path="/add_consult/:patientId/:chartId" element={<AddConsult />} />
+        <Route path="/add_discharge_note/:patientId/:chartId" element={<AddDischargeNote />} />
+        <Route path="/add_operative_report/:patientId/:chartId" element={<AddOperativeReport />} />
+        <Route path="/add_procedure_note/:patientId/:chartId" element={<AddProcedureNote />} />
       </Routes>
     </div>
   );

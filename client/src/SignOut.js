@@ -15,12 +15,12 @@ function SignOut() {
     return (
         <div className='container'>
             <h1>{user.first_name} do you want to Log Out ?</h1> 
-            <button onClick={()=>setWantToLogOut(!wantToLogOut)}>Click Here</button>
+            <button className="btn btn-warning" onClick={()=>setWantToLogOut(!wantToLogOut)}>Click Here</button>
             {wantToLogOut? 
              (<div>
                 <h1>Are you sure?</h1>
-                <button onClick={()=>LogOut()}>Yes</button>
-                <button onClick={()=>setWantToLogOut(!wantToLogOut)}>No</button>
+                <button className="btn btn-danger" onClick={()=>LogOut()}>Yes</button>
+                <button className="btn btn-primary"onClick={()=>setWantToLogOut(!wantToLogOut)}>No</button>
             </div>) 
             : null}
         </div>

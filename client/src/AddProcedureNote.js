@@ -3,13 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { UserContext } from './User'
 
 function AddProcedureNote() {
-    const {patientId} = useParams()
-    const {patients, user} = useContext(UserContext)
+    const {patientId, chartId} = useParams()
+    const {user} = useContext(UserContext)
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
-    const thisPatient = patients.find(patient => patient.id === parseInt(patientId))
     const [procedureNote, setProcedureNote] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: chartId,
         provider_id: user.id,
         indications: "",
         anesthesia: "",
@@ -43,7 +42,7 @@ function AddProcedureNote() {
 
   return (
     <div>
-        <h3>Procedure Note for {thisPatient.first_name} {thisPatient.last_name}</h3>
+        <h3>Procedure Note</h3>
         <form  className='form' onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
             <label>Indications: </label>

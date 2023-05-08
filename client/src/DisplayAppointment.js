@@ -21,10 +21,10 @@ function DisplayAppointment({appointment}) {
 
   return (
     <div className="card">
-      <h4 className='card-header'>{patient.first_name} {patient.last_name}</h4> 
-      <p>Type of appointment: {type_of_appointment}</p>
-      <p>Location: {location}</p>
-      <p>Date: {displayDate(date)} Time: {displayTime(date)}</p>
+      <h4 className='card-header text-bg-info mb-3'>{patient.first_name} {patient.last_name}</h4> 
+      <p><b>Type of appointment:</b> {type_of_appointment}</p>
+      <p><b>Location:</b> {location}</p>
+      <p><b>Date:</b> {displayDate(date)} Time: {displayTime(date)}</p>
       <NavLink className="d-grid gap-2" to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
           <button type='button'>Add Records</button>
       </NavLink> 

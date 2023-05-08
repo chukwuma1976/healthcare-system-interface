@@ -19,22 +19,10 @@ function Appointments() {
     const patientList = byFirstAndLastName.map(patient =><AppointmentByPatient key={patient.id} patient={patient} />)
     const appointmentList = appointments.map(appointment =>
         <DisplayAppointment key={appointment.id} appointment={appointment}/>)
-    const printableListOfAppointments = appointments.map(appointment =>{ 
-        const {id, type_of_appointment, location, date, patient_id} = appointment
-        const patient = patients.find(patient=>patient.id===patient_id)
-        const {first_name, last_name, middle_name, birth_date}=patient
-        return (
-            <div key={id}> 
-                <h6>{last_name}, {first_name}, {middle_name[0]} DOB: {displayDate(birth_date)}</h6>
-                <p>
-                    Type of appointment: {type_of_appointment} || Location: {location} || Date: {displayDate(date)} || Time: {displayTime(date)}
-                </p>
-            </div>)
-        })
     const printableAppointments = (
         <div>
             <h4>Appointment List for {user.first_name} {user.last_name}</h4>
-            {printableListOfAppointments}
+            {appointmentList}
         </div>
     )
   return (
@@ -58,7 +46,7 @@ function Appointments() {
             {!displayAppointments? 
             `Click to display appointments for ${user.first_name} ${user.last_name} ` :
              `Click to hide appointments for ${user.first_name} ${user.last_name} `}
-             <span class="badge text-bg-secondary">{appointments.length}</span>
+             <span className="badge text-bg-secondary">{appointments.length}</span>
         </button>
         {displayAppointments? 
             <div className="container-md">

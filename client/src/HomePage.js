@@ -4,39 +4,39 @@ import { UserContext } from './User';
 import Clock from './Clock';
 
 function HomePage() {
-    const {user, today, displayDate, displayTime} = useContext(UserContext)
+    const {user} = useContext(UserContext)
     const {username, first_name, middle_name, last_name, type_of_provider, department} = user
     const [displayProfile, setDisplayProfile] = useState(false)
     return (
         <div className='home-page'>
             <Clock />
             <h1>Hello {first_name} {last_name}, Welcome to the Healthcare System Interface (HCSI) </h1>
-            <button onClick={()=>setDisplayProfile(!displayProfile)}>
+            <button className="btn btn-dark" onClick={()=>setDisplayProfile(!displayProfile)}>
                {!displayProfile?  `${first_name} Click To See Profile` : 'Hide Profile'}
             </button>
             <br/>
             <br/>
             {!displayProfile ? null :
             <div className='card'>
-                <h4 className='card-header'>Full Name: {first_name} {middle_name} {last_name}</h4>
-                <p>Username: {username}</p>
-                <p>Type of Provider: {type_of_provider}</p>
-                <p>Department: {department}</p>
+                <h4 className='card-header text-bg-secondary mb-3'>Full Name: {first_name} {middle_name} {last_name}</h4>
+                <p><b>Username:</b> {username}</p>
+                <p><b>Type of Provider:</b> {type_of_provider}</p>
+                <p><b>Department:</b> {department}</p>
             </div>
             }
             <h2>Please feel free to navigate to other parts of this app and start managing your patient records</h2>
             <br/>
-            <NavLink to="/providers" style={{color: 'blue'}}>
-                <button>Providers</button>
+            <NavLink to="/providers" >
+                <button className="btn btn-info">Providers</button>
             </NavLink>
-            <NavLink to="/appointments" style={{color: 'blue'}}>
-                <button>Appointments</button>
+            <NavLink to="/appointments" >
+                <button className="btn btn-info">Appointments</button>
             </NavLink>
-            <NavLink to="/patient_records" style={{color: 'blue'}}>
-                <button>Patient Records</button>
+            <NavLink to="/patient_records" >
+                <button className="btn btn-info">Patient Records</button>
             </NavLink>
-            <NavLink to="/signout" style={{color: 'blue'}}>
-                <button>Log Out</button>
+            <NavLink to="/signout" >
+                <button className="btn btn-info">Log Out</button>
             </NavLink>
         </div>
     )
