@@ -1,9 +1,9 @@
 Rails.application.routes.draw do 
 
-  # namespace :api do 
+  # namespace :admin do 
     resources :patients do
       resources :charts, only: :index
-      resources :pictures
+      resources :pictures, only: [:create, :update]
       resources :history_and_physicals
       resources :consults
       resources :discharge_notes
@@ -22,5 +22,5 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
   # end
 
-  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

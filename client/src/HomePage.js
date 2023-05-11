@@ -26,10 +26,10 @@ function HomePage() {
             }
             <h2>Please feel free to navigate to other parts of this app and start managing your patient records</h2>
             <br/>
-            <NavLink to="/providers" >
+            <NavLink to="/health_care_providers" >
                 <button className="btn btn-info">Providers</button>
             </NavLink>
-            <NavLink to="/appointments" >
+            <NavLink to="/patient_appointments" >
                 <button className="btn btn-info">Appointments</button>
             </NavLink>
             <NavLink to="/patient_records" >

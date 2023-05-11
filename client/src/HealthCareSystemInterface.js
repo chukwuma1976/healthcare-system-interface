@@ -12,7 +12,6 @@ import Providers from "./Providers";
 import Appointments from "./Appointments";
 import AddRecords from "./AddRecords";
 import AddSoapNote from "./AddSoapNote";
-import UpdatePatient from "./UpdatePatient";
 import AddHistory from "./AddHistory";
 import AddConsult from "./AddConsult";
 import AddDischargeNote from "./AddDischargeNote";
@@ -29,8 +28,8 @@ function HealthCareSystemInterface() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/providers" element={<Providers />} />
-        <Route path="/appointments" element={<Appointments />} />
+        <Route path="/health_care_providers" element={<Providers />} />
+        <Route path="/patient_appointments" element={<Appointments />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/patient_records" element={<PatientRecords />} />
 

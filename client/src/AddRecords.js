@@ -48,7 +48,7 @@ function AddRecords() {
         />  
         <button type='button' className="d-grid gap-2" onClick={()=>setWantImage(!wantImage)}>Add or Edit Image for Patient</button>     
         <EditImageInPatient thisPatient={thisPatient} display={wantImage} setDisplay={setWantImage} />
-        <NavLink to="/appointments" style={{color: 'blue'}}>
+        <NavLink to="/patient_appointments" style={{color: 'blue'}}>
           <button className="btn btn-primary">Back to Appointments</button>
         </NavLink> 
         <br /> 
