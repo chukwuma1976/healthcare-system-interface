@@ -29,5 +29,5 @@
 #     )
 #     this_woman.create_chart
 # end
-
-# puts "Done seeding patients"
+Provider.all
+puts "Done seeding patients"

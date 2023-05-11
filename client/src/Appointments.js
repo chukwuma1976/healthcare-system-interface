@@ -7,7 +7,7 @@ import FilterByName from './FilterByName'
 import PrintComponent from './PrintComponent'
 
 function Appointments() {
-    const {user, patients, appointments, displayDate, displayTime} = useContext(UserContext)
+    const {user, patients, appointments} = useContext(UserContext)
     const [displayPatients, setDisplayPatients] = useState(false)
     const [wantPatient, setWantPatient] = useState(false)
     const [displayAppointments, setDisplayAppointments] = useState(false)
