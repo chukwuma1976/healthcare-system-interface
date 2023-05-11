@@ -22,7 +22,7 @@ function HomePage() {
                 <p><b>Username:</b> {username}</p>
                 <p><b>Type of Provider:</b> {type_of_provider}</p>
                 <p><b>Department:</b> {department}</p>
-            </div>
+            </div>                       
             }
             <h2>Please feel free to navigate to other parts of this app and start managing your patient records</h2>
             <br/>
