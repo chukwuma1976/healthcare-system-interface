@@ -1,9 +1,12 @@
 class PatientSerializer < ActiveModel::Serializer
+
   attributes :id, :first_name, :middle_name, :last_name, :birth_date, :sex, :image, :address, :phone_number,
    :email_address, :insurance, :chart_id, :age
+
   def chart_id
     self.object.chart.id
   end
+
   def age
     birth_date = self.object.birth_date
     today = Time.now
@@ -12,4 +15,5 @@ class PatientSerializer < ActiveModel::Serializer
 
   has_many :providers
   has_many :appointments
+  has_one :picture
 end

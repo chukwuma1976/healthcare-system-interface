@@ -10,7 +10,7 @@ function Histories({history_and_physicals}) {
     <div className="d-grid gap-2">
         <button type ="button" className="btn btn-info" onClick={()=>setDisplay(!display)}>
           History and Physicals
-          <span class="badge text-bg-secondary">{history_and_physicals.length}</span>
+          <span className="badge text-bg-secondary">{history_and_physicals.length}</span>
         </button>
         {display? historiesList : null}
     </div>

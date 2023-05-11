@@ -24,8 +24,8 @@ function PatientRecords() {
         <div className="d-flex justify-content-start">
             <FilterByName name={firstName} setName={setFirstName} filter={"first name"}/>
             <FilterByName name={lastName} setName={setLastName} filter={"last name"}/>
-            <button type="button" class="btn">
-                <b>{all? "Viewing all patients":"Viewing your patients"}</b>
+            <button type="button" className="btn">
+                <b>{all? "Displaying all patients":"Displaying your patients"}</b>
                 <span className="badge text-bg-secondary">{viewedPatients.length}</span>
             </button>
             <button className="btn btn-info" onClick={()=>setAll(!all)} >

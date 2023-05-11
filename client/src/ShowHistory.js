@@ -23,7 +23,7 @@ function ShowHistory({history, histories, setHistories}) {
         plan,
         provider_header,
         created_at,
-        updated_at,    
+        updated_at    
     } = history
     const template = (
       <div className='record'>

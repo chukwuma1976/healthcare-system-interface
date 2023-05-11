@@ -5,9 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import AppointmentForm from './AppointmentForm';
+import AddImageToPatient from './AddImageToPatient'
 
 function AddPatient() {
-    const { patients, setPatients, appointments, setAppointments } = useContext(UserContext)
+    const { patients, setPatients } = useContext(UserContext)
     const [birthDate, setBirthDate] = useState(new Date())
     const [phoneNumber, setPhoneNumber] = useState()
     const [makeAppointment, setMakeAppointment] = useState(false)
@@ -31,16 +32,11 @@ function AddPatient() {
         last_name,  
         address, 
         email_address, 
-        insurance
+        insurance,
     } = patient
 
     function handleChange(event){
         setPatient({...patient, [event.target.name]:event.target.value})
-        // if (event.target.name==="image"){
-        //     setPatient({...patient, image: URL.createObjectURL(event.target.files[0])})
-        // } else {
-        //     setPatient({...patient, [event.target.name]:event.target.value})
-        // }
     }
     function addBirthDate(date){
         setBirthDate(date)
@@ -61,7 +57,7 @@ function AddPatient() {
             if (res.ok){
                 res.json().then(patient=>{
                     setPatients([...patients, patient])
-                    setPatient(patient)
+                    setPatient(patient)                   
                     setSuccess(true)
                 })
             } else {res.json().then(error=>setErrors(error.errors))}
@@ -72,12 +68,12 @@ function AddPatient() {
         <h3>Please enter information below</h3>
         <form className="form" onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
-            <label>First name</label>
-                <input type="text" name="first_name" value={first_name} onChange={handleChange}/>
-            <label>Middle name</label>
-                <input type="text" name="middle_name" value={middle_name} onChange={handleChange}/>
-            <label>Last name</label>
-                <input type="text" name="last_name" value={last_name} onChange={handleChange}/>
+            <label>First name: </label>
+                <input className='patient-name' type="text" name="first_name" value={first_name} onChange={handleChange}/>
+            <label>Middle name: </label>
+                <input className='patient-name' type="text" name="middle_name" value={middle_name} onChange={handleChange}/>
+            <label>Last name:</label>
+                <input className='patient-name' type="text" name="last_name" value={last_name} onChange={handleChange}/>
             <br />
             <label>Select a sex</label>
             <select onChange={(e)=>setPatient({...patient, sex:e.target.value})}>
@@ -97,10 +93,6 @@ function AddPatient() {
                 showYearDropdown
                 showMonthDropdown
             />
-            <label>Image</label>
-                {/* <input type="file"  name="image" accept="image/*" onChange={handleChange}/> */}
-                <input type="text"  name="image" accept="image/*" onChange={handleChange}/>
-            <br />
             <label>Enter address</label>
                 <input type="text" name="address" value={address} onChange={handleChange}/>
             <br />
@@ -119,14 +111,16 @@ function AddPatient() {
             <br />
             <button type="submit">Submit</button>
         </form>
-            {!success ? null : 
-                <h5 class="alert alert-success" role="alert">You have added {patient.first_name} {patient.last_name}.  Please schedule an appointment below</h5>}
+            {!success ? null :                 
             <div className="card">
+                <h5 class="alert alert-success" role="alert">You have added {patient.first_name} {patient.last_name} as a patient</h5>
+                <AddImageToPatient thisPatient={patient} />
                 <button className="d-grid gap-2" onClick={()=>setMakeAppointment(!makeAppointment)}>
                     {!makeAppointment? "Click to make an appointment" : "Hide appointment form"}
                 </button>
                 {makeAppointment? <AppointmentForm patientId={patient.id} setDisplay={setMakeAppointment}/> : null}
-            </div> 
+            </div>
+            } 
     </div>
   )
 }

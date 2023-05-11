@@ -12,7 +12,7 @@ function Providers() {
 
   return (
     <div className="container-sm">
-        <h1>Providers</h1>
+        <h2>Providers at HCSI</h2>
         <h3>Click a provider to see their patient list</h3>
         {providerList}
     </div>

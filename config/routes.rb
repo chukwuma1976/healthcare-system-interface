@@ -1,7 +1,9 @@
 Rails.application.routes.draw do 
+
   # namespace :api do 
     resources :patients do
       resources :charts, only: :index
+      resources :pictures
       resources :history_and_physicals
       resources :consults
       resources :discharge_notes

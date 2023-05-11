@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import AppointmentForm from './AppointmentForm'
-import { NavLink } from 'react-router-dom'
 
 function AppointmentByPatient({patient}) {
     const {
@@ -12,7 +11,7 @@ function AppointmentByPatient({patient}) {
         sex, address, 
         phone_number, 
         email_address, 
-        image,
+        picture,
         insurance,
         providers
     } = patient
@@ -27,7 +26,7 @@ function AppointmentByPatient({patient}) {
             </button>
             {!displayPatientInfo ? null : 
             <div>
-                {image ===''? null: <img src={image} alt='patient'/>}
+                {!picture ? null: <img src={picture.image} alt='patient'/>}
                 <p><b>DOB:</b> {birthday.getMonth()}/{birthday.getDate()}/{birthday.getFullYear()} <b>Sex:</b> {sex}</p>
                 <p><b>Address:</b> {address}</p>
                 <p><b>Phone number:</b> {phone_number}</p>

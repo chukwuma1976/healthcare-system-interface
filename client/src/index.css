@@ -24,9 +24,17 @@ h1, h2 {
   border: 1px solid black;
   text-align: left;
 }
+.images-form {
+  background: whitesmoke;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  text-align: center;
+}
 #patient-update {
   background: lightblue;
-  position: fixed;
+  position: absolute;
   left: 25%;
   top: 5%;
   width: 50%;
@@ -47,6 +55,13 @@ h1, h2 {
   height: auto;
   border: 1px solid black;
   text-align: center;
+}
+input {
+  width: 100%
+}
+.patient-name {
+  width:27%; 
+  align-content: flex-center;
 }
 .navbar {
   display: inline-block;
@@ -178,4 +193,7 @@ h1, h2 {
 }
 form textarea {
   width:auto;
+}
+img {
+  height: 200px;
 }
