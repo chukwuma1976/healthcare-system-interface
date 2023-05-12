@@ -22,6 +22,7 @@ function UserProvider({children}) {
         .then(res=>res.json())
         .then(setAppointments)
     }, [])
+    console.log('provider: ', user, 'patients: ', patients, 'appointments: ', appointments)
 
     const [today, setToday] = useState(new Date())
 
