@@ -20,7 +20,13 @@ import AddProcedureNote from "./AddProcedureNote";
 import PatientRecords from "./PatientRecords";
 
 function HealthCareSystemInterface() {
-  const {user, setUser} = useContext(UserContext);
+  const {user, setUser, patients, setPatients} = useContext(UserContext);
+
+  useEffect(()=>{
+      fetch('/patients')
+      .then(res=>res.json())
+      .then(setPatients)
+  }, [])
 
   if (!user) return <Login onLogin={setUser} />;
   return (
