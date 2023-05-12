@@ -21,7 +21,8 @@ function UserProvider({children}) {
         fetch('/appointments')
         .then(res=>res.json())
         .then(setAppointments)
-    }, [])
+    }, [user.id])
+
     console.log('provider: ', user, 'patients: ', patients, 'appointments: ', appointments)
 
     const [today, setToday] = useState(new Date())
