@@ -22,4 +22,5 @@ class PatientSerializer < ActiveModel::Serializer
   has_many :providers
   has_many :appointments
   has_one :picture
+  has_one :chart
 end
