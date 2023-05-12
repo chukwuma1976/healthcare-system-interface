@@ -6,6 +6,9 @@ class PatientSerializer < ActiveModel::Serializer
   def chart_id
     if self.object.chart.id
       self.object.chart.id
+    else
+      self.object.create_chart
+      self.object.chart.id
     end
   end
 
