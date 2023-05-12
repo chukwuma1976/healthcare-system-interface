@@ -15,4 +15,5 @@ class ProviderSerializer < ActiveModel::Serializer
   end
   
   has_many :patients
+  has_many :appointments
 end
