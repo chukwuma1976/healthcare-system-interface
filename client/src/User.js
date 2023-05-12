@@ -13,15 +13,19 @@ function UserProvider({children}) {
                 res.json().then(setUser)
             }
         })
+    }, [])
 
+    useEffect(()=>{
         fetch('/patients')
         .then(res=>res.json())
         .then(setPatients)
+    }, [])
 
+    useEffect(()=>{
         fetch('/appointments')
         .then(res=>res.json())
         .then(setAppointments)
-    }, [user.id])
+    }, [])
 
     console.log('provider: ', user, 'patients: ', patients, 'appointments: ', appointments)
 
