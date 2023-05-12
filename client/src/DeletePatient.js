@@ -16,7 +16,7 @@ function DeletePatient({patient, patients, setPatients}) {
     //     }
   return (
     <div>
-        <button onClick={()=>setWantToDelete(true)}>Delete {patient.first_name} {patient.last_name}</button>
+        <button onClick={()=>setWantToDelete(true)}>Delete {patient.first_name} {patient.last_name} chart {patient.chart.id}</button>
         <br/>
         {!wantToDelete ? null : 
         <div>
