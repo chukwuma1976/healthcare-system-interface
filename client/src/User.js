@@ -16,13 +16,13 @@ function UserProvider({children}) {
     }, [])
 
     useEffect(()=>{
-        fetch('/patients')
+        fetch('/all_patients')
         .then(res=>res.json())
         .then(setPatients)
     }, [])
 
     useEffect(()=>{
-        fetch('/appointments')
+        fetch('/all_appointments')
         .then(res=>res.json())
         .then(setAppointments)
     }, [])
