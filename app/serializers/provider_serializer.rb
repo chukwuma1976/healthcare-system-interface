@@ -13,7 +13,4 @@ class ProviderSerializer < ActiveModel::Serializer
       "#{patient.last_name}, #{patient.first_name} || Type of appointment: #{appointment.type_of_appointment} || Location: #{appointment.location } || Date: #{appointment.date.strftime("%m/%d/%Y")}" 
     end
   end
-  
-  has_many :patients
-  has_many :appointments
 end
