@@ -4,7 +4,9 @@ class PatientSerializer < ActiveModel::Serializer
    :email_address, :insurance, :chart_id, :age
 
   def chart_id
-    self.object.chart.id
+    if self.object.chart.id
+      self.object.chart.id
+    end
   end
 
   def age
