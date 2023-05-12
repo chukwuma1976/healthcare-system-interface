@@ -2,16 +2,11 @@ class PatientSerializer < ActiveModel::Serializer
 
   attributes :id, :first_name, :middle_name, :last_name, :birth_date, :sex, :image, :address, :phone_number,
    :email_address, :insurance, :age, 
-  #  :chart_id, 
+   :chart_id, 
 
-  # def chart_id
-  #   if self.object.chart.id
-  #     self.object.chart.id
-  #   else
-  #     self.object.create_chart
-  #     self.object.chart.id
-  #   end
-  # end
+  def chart_id
+    self.object.chart.id
+  end
 
   def age
     birth_date = self.object.birth_date
