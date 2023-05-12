@@ -9,7 +9,7 @@ function EditOperativeReport({operation, display, operativeReports, setOperative
     const [operativeDate, setOperativeDate] = useState(new Date())
     const thisPatient = patients.find(patient => patient.id === operation.patient_id)
     const [operativeReport, setOperativeReport] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: thisPatient.chart.id,
         provider_id: user.id,
         date: new Date(operation.date),
         indications: operation.indications,

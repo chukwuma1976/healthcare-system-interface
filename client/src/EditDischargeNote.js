@@ -10,7 +10,7 @@ function EditDischargeNote({discharge, display, dischargeNotes, setDischargeNote
     const [dischargeDate, setDischargeDate] = useState(new Date())
     const thisPatient = patients.find(patient => patient.id === discharge.patient_id)
     const [dischargeNote, setDischargeNote] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: thisPatient.chart.id,
         provider_id: user.id,
         date_of_admission: new Date(discharge.date_of_admission),
         date_of_discharge: new Date(discharge.date_of_discharge),

@@ -6,7 +6,7 @@ function EditProcedureNote({procedure, display, procedureNotes, setProcedureNote
     const [errors, setErrors] = useState([])
     const thisPatient = patients.find(patient => patient.id === procedure.patient_id)
     const [procedureNote, setProcedureNote] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: thisPatient.chart.id,
         provider_id: user.id,
         indications: procedure.indications,
         anesthesia: procedure.anesthesia,

@@ -6,7 +6,7 @@ function EditHistory({hpi, display, histories, setHistories}) {
     const [errors, setErrors] = useState([])
     const thisPatient = patients.find(patient => patient.id === hpi.patient_id)
     const [history, setHistory] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: thisPatient.chart.id,
         provider_id: user.id,
         chief_complaint: hpi.chief_complaint,
         past_medical_history: hpi.past_medical_history,

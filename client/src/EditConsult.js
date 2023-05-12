@@ -6,7 +6,7 @@ function EditConsult({thisConsult, display, consulted, setConsulted}) {
     const [errors, setErrors] = useState([])
     const thisPatient = patients.find(patient => patient.id === thisConsult.patient_id)
     const [consult, setConsult] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: thisPatient.chart.id,
         provider_id: user.id,
         reason_for_consult: thisConsult.reason_for_consult,
         past_medical_history: thisConsult.past_medical_history,
