@@ -22,11 +22,13 @@ function DisplayPatientRecords({patient}) {
         procedure_notes: '',
     })
     const {history_and_physicals, progress_notes, discharge_notes, consults, operative_reports, procedure_notes} = chart
-    useEffect(()=>{
-        fetch(`/patient/${id}/charts`)
-        .then(res=>res.json())
-        .then(setChart)
+    if (patient.chart) {
+        useEffect(()=>{
+            fetch(`/patient/${id}/charts`)
+            .then(res=>res.json())
+            .then(setChart)
     }, [])
+    }
 
     if (!patient.chart) return null
   return (

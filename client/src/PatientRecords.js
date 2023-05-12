@@ -15,6 +15,7 @@ function PatientRecords() {
         .then(res=>res.json())
         .then(setProvidersPatients)
     }, [])   
+    
     const filteredbyLastName = viewedPatients.filter(patient=>patient.last_name.toLowerCase().includes(lastName))
     const filteredbyFirstAndLastName = filteredbyLastName.filter(patient=>patient.first_name.toLowerCase().includes(firstName))
     const patientList = filteredbyFirstAndLastName.map(patient=><DisplayPatientRecords key={patient.id} patient={patient} />)
