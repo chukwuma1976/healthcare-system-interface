@@ -23,19 +23,10 @@ function DisplayPatientRecords({patient}) {
     })
     const {history_and_physicals, progress_notes, discharge_notes, consults, operative_reports, procedure_notes} = chart
     
-    // useEffect(()=>{
-    //     fetch(`/patient/${id}/charts`)
-    //     .then(res=>res.json())
-    //     .then(setChart)
-    // }, [])
-
     useEffect(()=>{
-        fetch(`/patient/${id}/charts`)
-        .then( res=> {if (res.ok){
-            res.json()
-            .then(setChart)
-        }})
-        
+        fetch(`/patients/${id}/charts`)
+        .then(res=>res.json())
+        .then(setChart)
     }, [])
 
     if (!patient.chart) return null
