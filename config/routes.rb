@@ -1,6 +1,6 @@
 Rails.application.routes.draw do 
 
-  namespace :api do 
+  # namespace :api do 
     resources :patients do
       resources :charts, only: :index
       resources :pictures, only: [:create, :update]
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     post '/signup', to: 'providers#create'
     get '/me', to: 'providers#show'
     delete '/logout', to: 'sessions#destroy'
-  end
+  # end
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
