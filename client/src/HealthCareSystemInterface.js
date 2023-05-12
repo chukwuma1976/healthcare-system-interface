@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import {UserContext} from "./User";
 
@@ -20,7 +20,7 @@ import AddProcedureNote from "./AddProcedureNote";
 import PatientRecords from "./PatientRecords";
 
 function HealthCareSystemInterface() {
-  const {user, setUser, patients, setPatients} = useContext(UserContext);
+  const {user, setUser, setPatients} = useContext(UserContext);
 
   useEffect(()=>{
       fetch('/patients')
