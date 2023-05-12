@@ -4,7 +4,7 @@ class ProvidersController < ApplicationController
     
     def index
         providers=Provider.all.order(:last_name)
-        render json: providers, status: :ok
+        render json: providers, include: ['patients', 'patients.picture'], status: :ok
     end
     
     def create
@@ -19,7 +19,7 @@ class ProvidersController < ApplicationController
 
     def show
         if current_provider
-            render json: current_provider, status: :created
+            render json: current_provider,include: ['patients', 'patients.picture'], status: :created
         else
             render json: {errors: "No current user"}, status: :unauthorized
         end
