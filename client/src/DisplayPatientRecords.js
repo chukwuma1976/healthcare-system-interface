@@ -13,15 +13,15 @@ function DisplayPatientRecords({patient}) {
     const {displayDateAsNumbers, patients, setPatients} = useContext(UserContext)
     const [display, setDisplay] = useState(false)
     const {id, first_name, last_name, birth_date, age} = patient
-    const [chart, setChart] = useState({
-        history_and_physicals: '',
-        progress_notes: '',
-        discharge_notes: '',
-        consults: '',
-        operative_reports: '',
-        procedure_notes: '',
-    })
-    const {history_and_physicals, progress_notes, discharge_notes, consults, operative_reports, procedure_notes} = chart
+    // const [chart, setChart] = useState({
+    //     history_and_physicals: '',
+    //     progress_notes: '',
+    //     discharge_notes: '',
+    //     consults: '',
+    //     operative_reports: '',
+    //     procedure_notes: '',
+    // })
+    // const {history_and_physicals, progress_notes, discharge_notes, consults, operative_reports, procedure_notes} = chart
     
     useEffect(()=>{
         fetch(`/patients/${id}/charts`)
