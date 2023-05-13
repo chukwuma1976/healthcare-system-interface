@@ -10,9 +10,9 @@ import { UserContext } from './User'
 import DeletePatient from './DeletePatient'
 
 function DisplayPatientRecords({patient}) {
-    // const {displayDateAsNumbers, patients, setPatients} = useContext(UserContext)
-    // const [display, setDisplay] = useState(false)
-    // const {id, first_name, last_name, birth_date, age} = patient
+    const {displayDateAsNumbers, patients, setPatients} = useContext(UserContext)
+    const [display, setDisplay] = useState(false)
+    const {id, first_name, last_name, birth_date, age} = patient
     // const [chart, setChart] = useState({
     //     history_and_physicals: '',
     //     progress_notes: '',
