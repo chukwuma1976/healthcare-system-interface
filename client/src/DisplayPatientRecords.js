@@ -29,7 +29,7 @@ function DisplayPatientRecords({patient}) {
         .then(setChart)
     }, [])
 
-    if (!patient.chart) return null
+    // if (!patient.chart) return null
   return (
     <div className='container-lg'>
         <div>

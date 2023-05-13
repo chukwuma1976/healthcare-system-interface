@@ -6,7 +6,7 @@ function EditProgressNote({progressNote, display, progressNotes, setProgressNote
     const [errors, setErrors] = useState([])
     const thisPatient = patients.find(patient => patient.id === progressNote.patient_id)
     const [soapNote, setSoapNote] = useState({
-        chart_id: thisPatient.chart_id,
+        chart_id: thisPatient.chart.id,
         provider_id: user.id,
         subjective: progressNote.subjective,
         objective: progressNote.objective,
