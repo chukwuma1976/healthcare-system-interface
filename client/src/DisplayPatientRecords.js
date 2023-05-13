@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { UserContext } from './User'
-import Histories from './Histories'
-import ProgressNotes from './ProgressNotes'
-import DischargeNotes from './DischargeNotes'
-import Consults from './Consults'
-import OperativeReports from './OperativeReports'
-import ProcedureNotes from './ProcedureNotes'
+// import Histories from './Histories'
+// import ProgressNotes from './ProgressNotes'
+// import DischargeNotes from './DischargeNotes'
+// import Consults from './Consults'
+// import OperativeReports from './OperativeReports'
+// import ProcedureNotes from './ProcedureNotes'
 
 import DeletePatient from './DeletePatient'
 
@@ -37,7 +37,7 @@ function DisplayPatientRecords({patient}) {
                 {last_name}, {first_name} DOB: {displayDateAsNumbers(birth_date)} AGE: {age}
             </h5>
             <DeletePatient patient={patient} patients={patients} setPatients={setPatients} />
-            {!display ? null : 
+            {/* {!display ? null : 
             (<div>
                 <Histories history_and_physicals={history_and_physicals}/>
                 <ProgressNotes progress_notes={progress_notes} />
@@ -45,7 +45,7 @@ function DisplayPatientRecords({patient}) {
                 <Consults consults={consults} />
                 <OperativeReports operative_reports={operative_reports} />
                 <ProcedureNotes procedure_notes={procedure_notes} />
-            </div>)}
+            </div>)} */}
         </div>
     </div>
   )
