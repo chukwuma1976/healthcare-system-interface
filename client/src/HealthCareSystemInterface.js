@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import {UserContext} from "./User";
 
@@ -10,7 +9,6 @@ import SignOut from "./SignOut";
 
 import Providers from "./Providers";
 import Appointments from "./Appointments";
-import AddRecords from "./AddRecords";
 import AddSoapNote from "./AddSoapNote";
 import AddHistory from "./AddHistory";
 import AddConsult from "./AddConsult";
@@ -32,7 +30,8 @@ function HealthCareSystemInterface() {
         <Route path="/patient_appointments" element={<Appointments />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/patient_records" element={<PatientRecords />} />
-
+        
+      {/* medical documentation routes */}
         <Route path="/add_soap_note/:patientId/:chartId" element={<AddSoapNote />} />
         <Route path="/add_history/:patientId/:chartId" element={<AddHistory />} />
         <Route path="/add_consult/:patientId/:chartId" element={<AddConsult />} />

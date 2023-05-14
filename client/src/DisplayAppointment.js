@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react'
 import { UserContext } from './User'
 import EditAppointment from './EditAppointment'
-import { NavLink} from 'react-router-dom'
 import EmailContactForm from './EmailContactForm';
 import AddRecords from './AddRecords';
+import DeleteAppointment from './DeleteAppointment';
 
 function DisplayAppointment({appointment}) {
     const {patient_id, type_of_appointment, location, date} = appointment   
@@ -13,14 +13,7 @@ function DisplayAppointment({appointment}) {
     const [displayEmail, setDisplayEmail] = useState(false)
     const [displayOptions, setDisplayOptions] = useState(false)
     const [displayAddRecord, setDisplayAddRecord] = useState(false)
-
-    function deleteAppointment(){
-      fetch(`/appointments/${appointment.id}`, {
-        method: 'DELETE'
-      })
-      setAppointments(appointments.filter(appt=>appt.id !== appointment.id))
-      alert(`You have deleted the ${appointment.type_of_appointment} appointment for ${patient.first_name} ${patient.last_name}!`)
-    }
+    const [wantToDelete, setWantToDelete] = useState(false)
 
   return (
     <div className="card">
@@ -39,10 +32,6 @@ function DisplayAppointment({appointment}) {
       </p>
       {!displayOptions? null :
       <div className="d-grid gap-2">
-        {/* <NavLink className="d-grid gap-2" to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
-            <button type='button'>Add Records</button>
-        </NavLink>  */}
-
         <button className='button' onClick={()=>{setDisplayAddRecord(!displayAddRecord)}}>
           {!displayAddRecord ? "Click to Add a Record" : "Hide AddRecord Form"}
         </button>
@@ -52,9 +41,15 @@ function DisplayAppointment({appointment}) {
           {!displayEdit ? "Click to Edit Appointment" : "Hide Edit Form"}
         </button>
         {displayEdit ? <EditAppointment thisAppt={appointment} setDisplay={setDisplayEdit}/> : null}
-        <button className='button' onClick={deleteAppointment}>Click to Delete Appointment</button>
+        <button className='button' onClick={()=>setWantToDelete(!wantToDelete)}>
+          {wantToDelete
+          ? `Click to keep the appointment for ${patient.first_name} ${patient.last_name}`
+          : `Click to delete the appointment for ${patient.first_name} ${patient.last_name}`}
+        </button>
+        {wantToDelete ? 
+          <DeleteAppointment appointment={appointment} appointments={appointments} setAppointments={setAppointments} /> : null}
         <button className='button' onClick={()=>setDisplayEmail(!displayEmail)}>
-          {displayEmail ? 'Click to Hide Email Contact Form' : 'Click to Display Email Contact Form and Send Email'}
+        {displayEmail ? 'Click to Hide Email Contact Form' : 'Click to Display Email Contact Form and Send Email'}
         </button>
         {displayEmail ? 
           <div>

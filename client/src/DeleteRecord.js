@@ -8,7 +8,11 @@ function DeleteRecord({record, typeOfRecord, nameOfRecord, records, recordsSette
         fetch(`/patients/${record.patient_id}/${typeOfRecord}/${record.id}`, {
             method: 'DELETE'
         })
-        recordsSetter(records.filter(element=>element.id!==record.id))
+        onDelete(record)
+    }
+    function onDelete(record){
+        const filteredRecords = records.filter(element=>element.id!==record.id)
+        recordsSetter(filteredRecords)
     }
 
   if (record.provider_id!==user.id) {

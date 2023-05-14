@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
 
     def index
         if params[:provider_id]
-            patients = current_provider.patients.order(:last_name)
+            patients = current_provider.patients.order(:last_name).uniq
         else
             patients = Patient.all.order(:last_name)
         end 

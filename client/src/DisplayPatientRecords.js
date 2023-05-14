@@ -7,7 +7,7 @@ import Consults from './Consults'
 import OperativeReports from './OperativeReports'
 import ProcedureNotes from './ProcedureNotes'
 
-import DeletePatient from './DeletePatient'
+// import DeletePatient from './DeletePatient'
 
 function DisplayPatientRecords({patient}) {
     const {displayDateAsNumbers, patients, setPatients} = useContext(UserContext)
