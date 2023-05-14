@@ -24,12 +24,10 @@ default: &default
 development:
   <<: *default
   database: react_rails_api_project_template_test
-  # database: healthcare_system_interface
 
 test:
   <<: *default
   database: react_rails_api_project_template_test
-  # database: healthcare_system_interface
 
 production:
   <<: *default
