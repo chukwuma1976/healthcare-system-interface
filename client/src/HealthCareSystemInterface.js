@@ -33,7 +33,6 @@ function HealthCareSystemInterface() {
         <Route path="/signout" element={<SignOut />} />
         <Route path="/patient_records" element={<PatientRecords />} />
 
-        <Route path="/add_records/:patientId" element={<AddRecords />} />
         <Route path="/add_soap_note/:patientId/:chartId" element={<AddSoapNote />} />
         <Route path="/add_history/:patientId/:chartId" element={<AddHistory />} />
         <Route path="/add_consult/:patientId/:chartId" element={<AddConsult />} />

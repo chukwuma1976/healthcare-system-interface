@@ -34,9 +34,9 @@ h1, h2 {
 }
 #patient-update {
   background: lightblue;
-  position: absolute;
+  position: fixed;
   left: 25%;
-  top: 5%;
+  top: 0%;
   width: 50%;
 }
 #patient-update h5 {

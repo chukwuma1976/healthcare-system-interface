@@ -42,7 +42,7 @@ function AddDischargeNote() {
         }).then(res=>{
             if (res.ok) {
                 res.json().then(setDischargeNote)
-                navigate(`/add_records/${patientId}`)
+                navigate(`/patient_appointments`)
             } else {
                 res.json().then(error=>setErrors(error.errors))
             }

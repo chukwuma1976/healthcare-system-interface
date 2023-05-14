@@ -1,44 +1,38 @@
-import React, {useContext, useState, useEffect} from 'react'
-import {useParams, NavLink} from 'react-router-dom'
+import React, {useContext, useState} from 'react'
+import {NavLink} from 'react-router-dom'
 import { UserContext } from './User'
 import UpdatePatient from './UpdatePatient'
 import EditImageInPatient from './EditImageInPatient'
 
-function AddRecords() {
-    const {patientId} = useParams()
+function AddRecords({patient}) {
     const {user} = useContext(UserContext)
-    const [thisPatient, setThisPatient] = useState({})
+    const [thisPatient, setThisPatient] = useState(patient)
     const [display, setDisplay] = useState(false)
     const [wantImage, setWantImage] = useState(false)
-    useEffect(()=>{
-      fetch(`/patients/${patientId}`)
-      .then(res=>res.json())
-      .then(setThisPatient)
-    },[])
   return (
     <div className="container nav flex-column">
-        <h4>
+        <h5>
           {user.first_name} {user.last_name} add a record for {thisPatient.first_name} {thisPatient.last_name} by clicking a choice below
-        </h4>
-        <NavLink className="d-grid gap-2" to={`/add_soap_note/${patientId}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
-          <button>Add a SOAP note</button>
+        </h5>
+        <NavLink className="d-grid gap-2" to={`/add_soap_note/${patient.id}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
+          <button className="btn btn-outline-primary">Add a SOAP note</button>
         </NavLink>
-        <NavLink className="d-grid gap-2" to={`/add_history/${patientId}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
-          <button>Add a history and physical</button>
+        <NavLink className="d-grid gap-2" to={`/add_history/${patient.id}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
+          <button className="btn btn-outline-primary">Add a history and physical</button>
         </NavLink>
-        <NavLink className="d-grid gap-2" to={`/add_consult/${patientId}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
-          <button>Add a consult</button>
+        <NavLink className="d-grid gap-2" to={`/add_consult/${patient.id}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
+          <button className="btn btn-outline-primary">Add a consult</button>
         </NavLink>
-        <NavLink className="d-grid gap-2" to={`/add_discharge_note/${patientId}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
-          <button>Add a discharge summary</button>
+        <NavLink className="d-grid gap-2" to={`/add_discharge_note/${patient.id}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
+          <button className="btn btn-outline-primary">Add a discharge summary</button>
         </NavLink>
-        <NavLink className="d-grid gap-2" to={`/add_operative_report/${patientId}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
-          <button >Add an operative report</button>
+        <NavLink className="d-grid gap-2" to={`/add_operative_report/${patient.id}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
+          <button className="btn btn-outline-primary" >Add an operative report</button>
         </NavLink>
-        <NavLink className="d-grid gap-2" to={`/add_procedure_note/${patientId}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
-          <button>Add a brief procedure note</button>
+        <NavLink className="d-grid gap-2" to={`/add_procedure_note/${patient.id}/${thisPatient.chart.id}`} style={{color: 'blue'}}>
+          <button className="btn btn-outline-primary">Add a brief procedure note</button>
         </NavLink>
-        <button type='button' className="d-grid gap-2" onClick={()=>setDisplay(true)}>Update Patient Information</button>
+        <button type='button' className="btn btn-secondary" onClick={()=>setDisplay(true)}>Update Patient Information</button>
         <UpdatePatient 
           thisPatient={thisPatient} 
           setPatient={setThisPatient} 
@@ -46,11 +40,8 @@ function AddRecords() {
           setDisplay={setDisplay} 
           closeDisplay={()=>setDisplay(false)} 
         />  
-        <button type='button' className="d-grid gap-2" onClick={()=>setWantImage(!wantImage)}>Add or Edit Image for Patient</button>     
+        <button type='button' className="btn btn-info" onClick={()=>setWantImage(!wantImage)}>Add or Edit Image for Patient</button>     
         <EditImageInPatient thisPatient={thisPatient} display={wantImage} setDisplay={setWantImage} />
-        <NavLink to="/patient_appointments" style={{color: 'blue'}}>
-          <button className="btn btn-primary">Back to Appointments</button>
-        </NavLink> 
         <br /> 
     </div>
   )

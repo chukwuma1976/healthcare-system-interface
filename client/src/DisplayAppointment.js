@@ -3,6 +3,7 @@ import { UserContext } from './User'
 import EditAppointment from './EditAppointment'
 import { NavLink} from 'react-router-dom'
 import EmailContactForm from './EmailContactForm';
+import AddRecords from './AddRecords';
 
 function DisplayAppointment({appointment}) {
     const {patient_id, type_of_appointment, location, date} = appointment   
@@ -11,6 +12,7 @@ function DisplayAppointment({appointment}) {
     const [displayEdit, setDisplayEdit] = useState(false)
     const [displayEmail, setDisplayEmail] = useState(false)
     const [displayOptions, setDisplayOptions] = useState(false)
+    const [displayAddRecord, setDisplayAddRecord] = useState(false)
 
     function deleteAppointment(){
       fetch(`/appointments/${appointment.id}`, {
@@ -37,9 +39,15 @@ function DisplayAppointment({appointment}) {
       </p>
       {!displayOptions? null :
       <div className="d-grid gap-2">
-        <NavLink className="d-grid gap-2" to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
+        {/* <NavLink className="d-grid gap-2" to={`/add_records/${patient_id}`} style={{color: 'blue'}}>
             <button type='button'>Add Records</button>
-        </NavLink> 
+        </NavLink>  */}
+
+        <button className='button' onClick={()=>{setDisplayAddRecord(!displayAddRecord)}}>
+          {!displayAddRecord ? "Click to Add a Record" : "Hide AddRecord Form"}
+        </button>
+        {displayAddRecord ? <AddRecords patient={patient} /> : null}
+        
         <button className='button' onClick={()=>{setDisplayEdit(!displayEdit)}}>
           {!displayEdit ? "Click to Edit Appointment" : "Hide Edit Form"}
         </button>

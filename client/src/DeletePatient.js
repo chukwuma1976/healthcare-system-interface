@@ -8,15 +8,9 @@ function DeletePatient({patient, patients, setPatients}) {
         })
         setPatients(patients.filter(element=>element.id!==patient.id))
     }
-
-    // if (record.provider_id!==user.id) {
-    //     return <div>
-    //             <button onClick={()=>setWantToDelete(true)}>Delete {patient.first_name} {patient.last_name}</button>
-    //         </div>
-    //     }
   return (
     <div>
-        <button onClick={()=>setWantToDelete(true)}>Delete {patient.first_name} {patient.last_name} chart {patient.chart ? patient.chart.id :'none'}</button>
+        <button onClick={()=>setWantToDelete(true)}>Click to delete {patient.first_name} {patient.last_name}</button>
         <br/>
         {!wantToDelete ? null : 
         <div>
