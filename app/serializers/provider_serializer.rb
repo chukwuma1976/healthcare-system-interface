@@ -1,5 +1,6 @@
 class ProviderSerializer < ActiveModel::Serializer
   attributes :id, :username, :first_name, :middle_name, :last_name, :type_of_provider, :department, :patient_list, :appointment_list
+  
   def patient_list
     patients=self.object.patients
     patients.map do |patient|
