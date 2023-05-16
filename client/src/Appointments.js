@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { UserContext } from './User'
 import AppointmentByPatient from './AppointmentByPatient'
 import DisplayAppointment from './DisplayAppointment'
@@ -7,12 +7,17 @@ import FilterByName from './FilterByName'
 import PrintComponent from './PrintComponent'
 
 function Appointments() {
-    const {user, patients, appointments} = useContext(UserContext)
+    const {user, patients, appointments, setAppointments} = useContext(UserContext)
     const [displayPatients, setDisplayPatients] = useState(false)
     const [wantPatient, setWantPatient] = useState(false)
     const [displayAppointments, setDisplayAppointments] = useState(false)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    useEffect(()=>{
+        fetch('/appointments')
+        .then(res=>res.json())
+        .then(setAppointments) 
+    }, []) 
 
     const byLastName = patients.filter(patient=>patient.last_name.toLowerCase().includes(lastName))
     const byFirstAndLastName = byLastName.filter(patient=>patient.first_name.toLowerCase().includes(firstName))
