@@ -66,7 +66,7 @@ To launch this application:
         sudo -u postgres -i
         createuser -sr <username>
     
-    Alternatively you can go to Render at URL: https://healthcare-system-interface-ow0v.onrender.com/
+    Alternatively you can go to Render at URL: https://hcsi-isxm.onrender.com/
 
 Link to the demo for this application: https://youtu.be/ONNHBAip2To
 
