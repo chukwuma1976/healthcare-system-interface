@@ -132,6 +132,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_062638) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "patient_ids", force: :cascade do |t|
+    t.string "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "first_name"
     t.string "middle_name"
