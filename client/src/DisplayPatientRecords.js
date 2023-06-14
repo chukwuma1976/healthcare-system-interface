@@ -7,7 +7,7 @@ import Consults from './Consults'
 import OperativeReports from './OperativeReports'
 import ProcedureNotes from './ProcedureNotes'
 
-// import DeletePatient from './DeletePatient'
+import DeletePatient from './DeletePatient'
 
 function DisplayPatientRecords({patient}) {
     const {displayDateAsNumbers, patients, setPatients} = useContext(UserContext)
@@ -35,7 +35,7 @@ function DisplayPatientRecords({patient}) {
             <h5 onClick={()=>setDisplay(!display)}>
                 {last_name}, {first_name} DOB: {displayDateAsNumbers(birth_date)} AGE: {age}
             </h5>
-            {/* <DeletePatient patient={patient} patients={patients} setPatients={setPatients} /> */}
+            <DeletePatient patient={patient} patients={patients} setPatients={setPatients} />
             {!display ? null : 
             (<div>
                 <Histories history_and_physicals={history_and_physicals}/>
