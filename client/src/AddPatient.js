@@ -66,6 +66,7 @@ function AddPatient() {
   return (
     <div>
         <h3>Please enter information below</h3>
+        {success ? null:
         <form className="form" onSubmit={handleSubmit}>
             {errors.map(error=><p key={error}>{error}</p>)}
             <label>First name: </label>
@@ -111,6 +112,7 @@ function AddPatient() {
             <br />
             <button type="submit">Submit</button>
         </form>
+        }
             {!success ? null :                 
             <div className="card">
                 <h5 class="alert alert-success" role="alert">You have added {patient.first_name} {patient.last_name} as a patient</h5>
