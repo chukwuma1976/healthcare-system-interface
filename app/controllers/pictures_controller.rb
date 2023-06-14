@@ -6,7 +6,6 @@ class PicturesController < ApplicationController
     end
 
     def create
-        # byebug
         picture = Patient.find(params[:patient_id]).create_picture!(picture_params)
         render json: picture, status: :created
     end
