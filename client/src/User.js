@@ -12,15 +12,19 @@ function UserProvider({children}) {
             if (res.ok){
                 res.json().then(setUser)
             }
-        })
+        })     
+    }, [])
 
+    useEffect(() =>{
         fetch('/patients')
         .then(res=>res.json())
         .then(setPatients)
+    }, [])
 
+    useEffect(() =>{
         fetch('/appointments')
         .then(res=>res.json())
-        .then(setAppointments)       
+        .then(setAppointments)          
     }, [])
 
     const [today, setToday] = useState(new Date())
