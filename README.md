@@ -68,7 +68,8 @@ To launch this application:
     
     Alternatively you can go to Render at URL: https://hcsi-isxm.onrender.com/
 
-Link to the demo for this application: https://youtu.be/ONNHBAip2To
+Link to the demo for this application: https://youtu.be/MwK6643qOG0
+For the extended demo for this application: https://youtu.be/ONNHBAip2To
 
 
 
