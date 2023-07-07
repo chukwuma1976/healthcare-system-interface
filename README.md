@@ -69,6 +69,7 @@ To launch this application:
     Alternatively you can go to Render at URL: https://hcsi-isxm.onrender.com/
 
 Link to the demo for this application: https://youtu.be/MwK6643qOG0
+
 For the extended demo for this application: https://youtu.be/ONNHBAip2To
 
 
@@ -83,7 +84,7 @@ Specs:
 
 * Database initialization: seed file commented out, add seed data run rails db:seed, of note when creating Patient instances create Chart instances for each Patient at the same time in the seed file.  Ex. new_patient = Patient.create(patient_params), followed by new_patient.create_chart(new_patient.id)
 
-* URL: https://healthcare-system-interface-ow0v.onrender.com/
+* URL: https: https://hcsi-isxm.onrender.com/
 
 * Deployment instructions : already deployed, to redeploy push changes to github
 
